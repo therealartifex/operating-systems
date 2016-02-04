@@ -11,32 +11,42 @@ Assignment 3 - "Simple UNIX Shell"
 #include <string.h>
 #include <ctype.h>
 
-#define M_LIN 256
+#define M_LIN 128
 
 int main(void)
 {
-	char *args[M_LIN/2 + 1]; // args go here
+   char *args[M_LIN/2 + 1] = {NULL}; // args go here
 	char buf[M_LIN]; // complete command goes here
 	int run = 1;
 	
 	// loop till we kill it
 	while (run) {
 		int i;
-		int argc = -1;
+		int arg_next = 0;
       int bg = 0;
 		
 		printf("wsh> "); // wsh = weird shell
 		fflush(stdout);
 		
 		fgets(buf, M_LIN, stdin); // read the command
-				
-		for(i=0;i<sizeof(buf);i++) {
+      int len = strlen(buf); // get the effective length of the command
+
+		args[0] = &buf[0];
+
+		for(i=0;i<len;i++) {
 			if (buf[i] == '&') bg = 1;
 			if(isspace(buf[i])){
 				 buf[i] = '\0';
-				 if (!i==sizeof(buf)-1) args[++argc]=&buf[i+1];
-			}      
+				 if (!(i==len-1)) args[++arg_next]=&buf[i+1]; // when we hit whitespace, set the next pointer in args to the next char in buf
+			}
 		}
+
+      int argc = sizeof(args)/sizeof(char*);
+
+      int j;
+      for(j=0;j<argc;j++){
+         printf("%d : %s\n",j,args[j]);
+      }
 	}
 
 	return 0;
