@@ -32,7 +32,7 @@ int main(void)
 		fgets(buf, M_LIN, stdin); // read the command
 				
 		for(i=0;i<strlen(buf);i++) {
-			if (strcmp(buf[i], '&') == 0) bg = 1;
+			if (buf[i] == 'r') bg = 1;
 			if(isspace(buf[i])){
 				 buf[i] = '\0';
 				 if (!i==strlen(buf)-1) args[++argc]=&buf[i+1];
