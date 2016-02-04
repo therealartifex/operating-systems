@@ -25,7 +25,7 @@ int main(void)
 		fflush(stdout);
 		
 		fgets(buf, M_LIN, stdin); // read the command
-		for(i=0;i<strlen(buf);i++) if(isspace(buf[i])) a[i] = '\0';
+		for(i=0;i<strlen(buf);i++) if(isspace(buf[i])) buf[i] = '\0';
 		printf("%s\n",buf);
 	}
 	return 0;
