@@ -16,15 +16,18 @@ Assignment 3 - "Simple UNIX Shell"
 int main(void)
 {
 	char *args[M_LIN/2 + 1]; // args go here
-	char *buf[M_LIN]; // complete command goes here
+	char buf[M_LIN]; // complete command goes here
 	int run = 1;
 	
 	// loop till we kill it
 	while (run) {
+		int i;
+		
 		printf("wsh>");
 		fflush(stdout);
 		
 		fgets(buf, M_LIN, stdin); // read the command
+		
 		for(i=0;i<strlen(buf);i++) if(isspace(buf[i])) buf[i] = '\0';
 		printf("%s\n",buf);
 	}
