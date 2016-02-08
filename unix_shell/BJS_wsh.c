@@ -48,18 +48,21 @@ int main(void)
       for(j=0;j<argc;j++){
          printf("%d : %s\n",j,args[j]);
       }
-	}
 
-   pid_t pid = fork();
-   if (pid < 0) {
-      // an error has occurred
-      fprintf(stderr, "Fork failed\n");
-      return 1;
-   } else if (pid == 0) {
-      execvp(args[0], args);
-   } else {
-      if (bg==0) wait(NULL);
-   }
+
+      // this is the part where it actually does stuff    
+      
+      pid_t pid = fork();
+      if (pid < 0) {
+         // an error has occurred
+         fprintf(stderr, "Fork failed\n");
+         return 1;
+      } else if (pid == 0) {
+         execvp(args[0], args);
+      } else {
+         if (bg==0) wait(NULL);
+      }
+	}
 
 	return 0;
 }
