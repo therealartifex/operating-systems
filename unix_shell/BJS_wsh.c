@@ -49,5 +49,16 @@ int main(void)
       }
 	}
 
+   pid_t pid = fork();
+   if (pid < 0) {
+      // an error has occurred
+      fprintf(stderr, "Fork failed\n");
+      return 1;
+   } else if (pid == 0) {
+      execvp(args[0], args);
+   } else {
+      if (bg==0) wait(NULL);
+   }
+
 	return 0;
 }
