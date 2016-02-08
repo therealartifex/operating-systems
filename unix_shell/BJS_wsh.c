@@ -10,6 +10,7 @@ Assignment 3 - "Simple UNIX Shell"
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
+#include <sys/types.h>
 
 #define M_LIN 128
 
