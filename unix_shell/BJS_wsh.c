@@ -42,14 +42,6 @@ int main(void)
 			}
 		}
 
-      int argc = sizeof(args)/sizeof(char*);
-
-      int j;
-      for(j=0;j<argc;j++){
-         printf("%d : %s\n",j,args[j]);
-      }
-
-
       // this is the part where it actually does stuff    
       
       pid_t pid = fork();
