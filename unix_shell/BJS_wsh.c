@@ -23,33 +23,34 @@ int main(void)
         int i;
         int argc = 0;
         int bg = 0;
-        char *args[M_LIN/2 + 1] = {0}; // args go here
+        char *args[M_LIN/2 + 1] = {NULL}; // args go here
 
         printf("wsh> "); // wsh = weird shell
         fflush(stdout);
 
         fgets(buf, M_LIN, stdin); // read the command
         int len = strlen(buf); // get the effective length of the command
-        printf("%c\n",buf[len-2]);
+        buf[len-1] = '\0'; // sanitize newline
+        len = strlen(buf);
 
-        args[0] = &buf[0];
-
-        if (buf[len-2] == '&') {
+        if (buf[len-1] == '&') {
             bg = 1;
             buf[len-2] = '\0';
-            --len; // new effective length
+            len = strlen(buf); // new effective length
         }
 
 
-        char *token = strtok(buf, " "); // you have been outsmarted
+        char *token = strtok(buf, " "); // you can't flim-flam the zim-zam!
         while (token && argc < M_LIN/2+1) {
             args[argc++] = token;
-            token = strtok(0, " ");
+            token = strtok(NULL, " ");
         }
-        args[argc] = 0;
+        
+        // this is the part where it actually does stuff
 
-        // this is the part where it actually does stuff    
 
+
+        // TODO: find out why the backgrounding causes the shell not to print after running a command
         pid_t pid = fork();
         if (pid < 0) {
             // an error has occurred
@@ -60,7 +61,12 @@ int main(void)
             execvp(args[0], args);
         } else {
             // parent process
-            if (bg==0) wait(NULL);
+            if (bg==1) {
+                printf("PARENT: BACKGROUNDING CHILD\n\n");
+            } else if (bg==0) {
+                printf("PARENT: NO BG\n\n");
+                wait(NULL);
+            }
         }
     }
 
