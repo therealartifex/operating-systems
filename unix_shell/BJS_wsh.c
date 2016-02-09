@@ -21,28 +21,32 @@ int main(void)
     // loop till we kill it
     while (run) {
         int i;
-        int arg_next = 0;
+        int argc = 0;
         int bg = 0;
-        char *args[M_LIN/2 + 1] = {NULL}; // args go here
+        char *args[M_LIN/2 + 1] = {0}; // args go here
 
         printf("wsh> "); // wsh = weird shell
         fflush(stdout);
 
         fgets(buf, M_LIN, stdin); // read the command
         int len = strlen(buf); // get the effective length of the command
+        printf("%c\n",buf[len-2]);
 
         args[0] = &buf[0];
 
-        for(i=0;i<len;i++) {
-            if (buf[i] == '&') {
-                bg = 1;
-                buf[i] = '\0';
-            }
-            if(isspace(buf[i])){
-                buf[i] = '\0';
-                if (!(i==len-1)) args[++arg_next]=&buf[i+1]; // when we hit whitespace, set the next pointer in args to the next char in buf
-            }
+        if (buf[len-2] == '&') {
+            bg = 1;
+            buf[len-2] = '\0';
+            --len; // new effective length
         }
+
+
+        char *token = strtok(buf, " "); // you have been outsmarted
+        while (token && argc < M_LIN/2+1) {
+            args[argc++] = token;
+            token = strtok(0, " ");
+        }
+        args[argc] = 0;
 
         // this is the part where it actually does stuff    
 
