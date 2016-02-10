@@ -10,16 +10,17 @@ Assignment 3 - "Simple UNIX Shell"
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/wait.h>
+#include <termios.h>
 
 #define M_LIN 128
 
 int main(void)
 {
     char buf[M_LIN]; // complete command goes here
-    int run = 1;
-
+    
     // loop till we kill it
-    while (run) {
+    while (1) {
         int i;
         int argc = 0;
         int bg = 0;
@@ -50,14 +51,16 @@ int main(void)
 
 
 
-        // TODO: find out why the backgrounding causes the shell not to print after running a command
         pid_t pid = fork();
+        int stat;
+
         if (pid < 0) {
             // an error has occurred
             fprintf(stderr, "Fork failed for a reason unbeknownst to me\n");
             return 1;
         } else if (pid == 0) {
             // child process
+            setpgid(0,0);
             execvp(args[0], args);
         } else {
             // parent process
@@ -65,7 +68,7 @@ int main(void)
                 printf("PARENT: BACKGROUNDING CHILD\n\n");
             } else if (bg==0) {
                 printf("PARENT: NO BG\n\n");
-                wait(NULL);
+                waitpid(-1, &stat, 0);
             }
         }
     }
