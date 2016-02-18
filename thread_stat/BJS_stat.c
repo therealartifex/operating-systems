@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <pthread.h>
 
+void *print_message_function( void *ptr )
+{
+     char *message;
+     message = (char *) ptr;
+     printf("%s \n", message);
+}
+
 main()
 {
      pthread_t thread1, thread2;
@@ -38,9 +45,4 @@ main()
      exit(EXIT_SUCCESS);
 }
  
-void *print_message_function( void *ptr )
-{
-     char *message;
-     message = (char *) ptr;
-     printf("%s \n", message);
-}
+
