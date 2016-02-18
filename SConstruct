@@ -1,1 +1,1 @@
-Program('wsh', 'unix_shell/BJS_wsh.c')
+Program('mstat', 'thread_stat/BJS_stat.c')
