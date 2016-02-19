@@ -2,19 +2,22 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-static float min, max, avg;
+static double min, max, avg;
 static int arg_size;
 
 void *average(void* p)
 {
+	double *f = p;
 	double sum = 0.0;
 	int i;
 	
 	for (i=0;i<arg_size;i++){
-		sum += *((double*)p + i);
+		printf("%d : %f\n", i, *(f + i));
+		sum += *(f + i));
 	}
 	
-	printf("Average:\t%.3f\n", sum/arg_size);
+	avg = sum/arg_size;
+	// printf("Average:\t%.3f\n", sum/arg_size);
 	
 }
 
@@ -37,7 +40,7 @@ int main(int argc, char *argv[])
      double fl_args[arg_size];
      for (i = 0; i<arg_size; i++){
 		 fl_args[i]=atof(argv[i+1]);
-		 printf("%d : %f\n", i, fl_args[i]);
+		 //printf("%d : %f\n", i, fl_args[i]);
 	 }
  
 	 // Create independent threads each of which will execute function
@@ -69,8 +72,8 @@ int main(int argc, char *argv[])
      // wait we run the risk of executing an exit which will terminate  
      // the process and all threads before the threads have completed.  
  
-     pthread_join(thread1, NULL);
-     pthread_join(thread2, NULL);
+     //pthread_join(thread1, NULL);
+     //pthread_join(thread2, NULL);
 	 pthread_join(thread3, NULL);
 	 
      return 0;
