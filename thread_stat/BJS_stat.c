@@ -56,24 +56,22 @@ int main(int argc, char *argv[])
 		 //printf("%d : %f\n", i, fl_args[i]);
 	 }
  
-	 // Create independent threads each of which will execute function
-	 
-	 /*
+	 // Create independent threads each of which will execute a function	 
      if(pthread_create( &thread1, NULL, minimum, (void*) fl_args))
      {
-         fprintf(stderr,"Error - pthread_create() return code: %d\n",iret1);
+         fprintf(stderr,"Error\n");
          exit(EXIT_FAILURE);
      }
  
      if(pthread_create( &thread2, NULL, maximum, (void*) fl_args))
      {
-         fprintf(stderr,"Error - pthread_create() return code: %d\n",iret2);
+         fprintf(stderr,"Error\n");
          exit(EXIT_FAILURE);
-     }*/
+     }
      
      if(pthread_create( &thread3, NULL, average, (void*) fl_args))
      {
-         fprintf(stderr,"Error - pthread_create() return code: %d\n",iret3);
+         fprintf(stderr,"Error\n");
          exit(EXIT_FAILURE);
      }
  
@@ -82,8 +80,8 @@ int main(int argc, char *argv[])
      // wait we run the risk of executing an exit which will terminate  
      // the process and all threads before the threads have completed.  
  
-     //pthread_join(thread1, NULL);
-     //pthread_join(thread2, NULL);
+     pthread_join(thread1, NULL);
+     pthread_join(thread2, NULL);
 	 pthread_join(thread3, NULL);
 	 
 	 printf("Average:\t%.3f\nMinimum:\t%.3f\nMaximum:\t%.3f\n", avg, min, max); 
