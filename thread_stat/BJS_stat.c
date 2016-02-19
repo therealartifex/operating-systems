@@ -83,9 +83,9 @@ int main(int argc, char *argv[])
  
       
      // cait until threads are complete before main continues
-     pthread_join(thread1, NULL);
-     pthread_join(thread2, NULL);
-	 pthread_join(thread3, NULL);
+     pthread_join(t1, NULL);
+     pthread_join(t2, NULL);
+	 pthread_join(t3, NULL);
 	 
 	 printf("Average:\t%.3f\nMinimum:\t%.3f\nMaximum:\t%.3f\n", avg, min, max); 
 	 
