@@ -1,27 +1,32 @@
+/* Brian Scott
+ * COSC 3053-10
+ * 18 Feb 2016
+ * Multithreaded statistics program
+ */
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 #include <limits.h>
 
+// global variables
 static double min, max, avg;
 static int arg_size;
 
+// simple average calculation
 void *average(void* p)
 {
 	double *f = p;
 	double sum = 0.0;
 	
 	int i;
-	for (i=0;i<arg_size;i++){
-		printf("%d : %f\n", i, *(f+i));
-		sum += *(f+i);
-	}
+	for (i=0;i<arg_size;i++) sum += *(f+i);
 	
 	avg = sum/arg_size;
-	// printf("Average:\t%.3f\n", sum/arg_size);
 	
 }
 
+// simple maximum calculation
 void *maximum(void* p)
 {
 	double *f = p;
@@ -33,6 +38,7 @@ void *maximum(void* p)
 	max = t;
 }
 
+// simple minimum calculation
 void *minimum(void* p)
 {
 	double *f = p;
@@ -43,43 +49,40 @@ void *minimum(void* p)
 	
 	min = t;
 }
-	
+
+// entry point
 int main(int argc, char *argv[])
 {
-     pthread_t thread1, thread2, thread3;
-     arg_size = argc-1;
+     pthread_t t1, t2, t3; // threads
+     arg_size = argc-1; // number of args not including name
      
      int i;
      double fl_args[arg_size];
      for (i = 0; i<arg_size; i++){
-		 fl_args[i]=atof(argv[i+1]);
-		 //printf("%d : %f\n", i, fl_args[i]);
+		 fl_args[i]=atof(argv[i+1]); // convert to floating-point numbers
 	 }
  
-	 // Create independent threads each of which will execute a function	 
-     if(pthread_create( &thread1, NULL, minimum, (void*) fl_args))
+	 // create independent threads each of which will execute a function	 
+     if(pthread_create(&t1, NULL, minimum, (void*) fl_args))
      {
          fprintf(stderr,"Error\n");
          exit(EXIT_FAILURE);
      }
  
-     if(pthread_create( &thread2, NULL, maximum, (void*) fl_args))
+     if(pthread_create(&t2, NULL, maximum, (void*) fl_args))
      {
          fprintf(stderr,"Error\n");
          exit(EXIT_FAILURE);
      }
      
-     if(pthread_create( &thread3, NULL, average, (void*) fl_args))
+     if(pthread_create(&t3, NULL, average, (void*) fl_args))
      {
          fprintf(stderr,"Error\n");
          exit(EXIT_FAILURE);
      }
  
       
-     // Wait till threads are complete before main continues. Unless we 
-     // wait we run the risk of executing an exit which will terminate  
-     // the process and all threads before the threads have completed.  
- 
+     // cait until threads are complete before main continues
      pthread_join(thread1, NULL);
      pthread_join(thread2, NULL);
 	 pthread_join(thread3, NULL);
