@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <limits.h>
 
 static double min, max, avg;
 static int arg_size;
@@ -9,11 +10,11 @@ void *average(void* p)
 {
 	double *f = p;
 	double sum = 0.0;
-	int i;
 	
+	int i;
 	for (i=0;i<arg_size;i++){
-		printf("%d : %f\n", i, *(f + i));
-		sum += *(f + i);
+		printf("%d : %f\n", i, *(f+i));
+		sum += *(f+i);
 	}
 	
 	avg = sum/arg_size;
@@ -23,20 +24,32 @@ void *average(void* p)
 
 void *maximum(void* p)
 {
-
+	double *f = p;
+	double t = INT_MIN;
+	
+	int i;
+	for (i=0;i<arg_size;i++) if (*(f+i) > t) t = *(f+i);
+	
+	max = t;
 }
 
 void *minimum(void* p)
 {
-
+	double *f = p;
+	double t = INT_MAX;
+	
+	int i;
+	for (i=0;i<arg_size;i++) if (*(f+i) < t) t = *(f+i);
+	
+	min = t;
 }
 	
 int main(int argc, char *argv[])
 {
      pthread_t thread1, thread2, thread3;
-     int i;
      arg_size = argc-1;
      
+     int i;
      double fl_args[arg_size];
      for (i = 0; i<arg_size; i++){
 		 fl_args[i]=atof(argv[i+1]);
