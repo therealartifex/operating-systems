@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
      }
  
       
-     // cait until threads are complete before main continues
+     // wait until threads are complete before main continues
      pthread_join(t1, NULL);
      pthread_join(t2, NULL);
 	 pthread_join(t3, NULL);
