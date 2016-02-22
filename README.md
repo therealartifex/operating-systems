@@ -4,7 +4,7 @@ All projects for the completion of LeTU Course COSC 3053-01. Projects currently 
 #### Current Build: thread_stat | [![Build Status](https://travis-ci.org/therealartifex/operating-systems.svg?branch=master)](https://travis-ci.org/therealartifex/operating-systems)
 
 #### Projects in progress:
-
+- _philosopher_ - Traditional "Five Philosophers" problem, except there are six, and they only go four rounds instead of forever
 
 #### Current finished projects to date:
 - _thread_stat_ - Multithreaded statistics calulator using Pthreads to divide the calculations
