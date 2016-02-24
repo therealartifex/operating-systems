@@ -74,22 +74,22 @@ void trace(int i, char *s) {
 *      i = philospher ID
 *           s = message
 *              */
-lock(&outlock);
-if (strcmp (s, "eating") == 0) eat_count [i]++;
+	lock(&output_lock);
+	if (strcmp (s, "eating") == 0) eat_count [i]++;
 /*
 *   fprintf(stdout,"%d: %s\n",i,s);
 *    */
-if (nsteps++ > maxsteps) {
+	if (nsteps++ > maxsteps) {
 /* don't exit while we are holding any chopsticks */
-if (strcmp(s,"thinking") == 0) {
-unlock(&outlock);
+		if (strcmp(s,"thinking") == 0) {
+			unlock(&output_lock);
 /*
 *       fprintf (stderr, "thread done\n");
 *        */
-pthread_exit(0);
-}
-}
-unlock(&outlock);
+			pthread_exit(0);
+		}
+	}
+	unlock(&output_lock);
 }
 
 void * philosopher_body(void *arg) {
@@ -104,13 +104,13 @@ chopsticks_put(self);
 
 int main() {
 int i;
-pthread_t th[NTHREADS]; /* IDs of the philospher threads */
+pthread_t tid[NTHREADS]; /* IDs of the philospher threads */
 int       no[NTHREADS]; /* corresponding table position numbers*/
 pthread_attr_t attr;
 
 for (i = 0; i < NTHREADS; i++) eat_count [i] = 0;
 
-pthread_mutex_init(&outlock, NULL);
+pthread_mutex_init(&output_lock, NULL);
 
 /* initialize the object chopsticks */
 chopsticks_init();
@@ -129,11 +129,11 @@ pthread_attr_setscope (&attr, PTHREAD_SCOPE_SYSTEM);
 /* start up the philosopher threads */
 for (i = 0; i < NTHREADS; i++) {
 no[i] = i;
-pthread_create(&th[i], NULL, philosopher_body, (int *) &no[i]);
+pthread_create(&tid[i], NULL, philosopher_body, (int *) &no[i]);
 }
 
 /* wait for all the threads to shut down */
-for (i = 0; i < NTHREADS; i++) pthread_join(th[i], NULL);
+for (i = 0; i < NTHREADS; i++) pthread_join(tid[i], NULL);
 
 for (i = 0; i < NTHREADS; i++) {
 fprintf (stderr, "philospher %d ate %d times\n", i, eat_count [i]);
