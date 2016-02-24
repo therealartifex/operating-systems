@@ -9,7 +9,6 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
 
 #define PH 6 // number of philosophers
 #define LT (i+PH-1)%PH // left of current
@@ -21,7 +20,7 @@
 #define unlock pthread_mutex_unlock
 
 pthread_cond_t CV[PH];
-pthread_mutex_t M, output_lock; // the output_lock mutex circumvents annoying stdout interleaving
+pthread_mutex_t M;
 int state[PH]; // state array
 int n, rounds = 0; // number of rounds to run 
 int eat_count[PH]; // number of times each philosopher has eaten
@@ -61,63 +60,56 @@ void chopsticks_put(int i) {
 }
 
 void trace(int i, char *s) {
-   // i = philospher ID
-   // s = message
+    // i = philospher ID
+    // s = message
     
-   lock(&output_lock);
-   if (strcmp (s, "eating") == 0) eat_count [i]++;
-   //   fprintf(stdout,"%d: %s\n",i,s);
+    if (strcmp (s, "eating") == 0) eat_count[i]++;
     
-   if (n++ > rounds) {
+    if (n++ > rounds) {
         if (strcmp(s,"thinking") == 0) {
-            unlock(&output_lock);
-            // fprintf (stderr, "thread done\n");
             pthread_exit(0);
         }
     } 
-    unlock(&output_lock);
 }
 
 void * phil_exec(void *arg) {
-   int self = *(int *) arg;
-   for (;;) {
-      trace(self,"thinking");
-      chopsticks_take(self);
-      trace(self,"eating");
-      chopsticks_put(self);
-   }
+    int self = *(int *) arg;
+    for (;;) {
+        trace(self,"thinking");
+        chopsticks_take(self);
+        trace(self,"eating");
+        chopsticks_put(self);
+    }
 }
 
 int main(int argc, char *argv[]) {
-   int i;
-   int no[PH]; // corresponding table position numbers
-   pthread_t tid[PH]; // IDs of the philospher threads
-   pthread_attr_t attr;
+    int i;
+    int no[PH]; // corresponding table position numbers
+    pthread_t tid[PH]; // IDs of the philospher threads
+    pthread_attr_t attr;
    
-   // set rounds with command-line args, default to 4
-   if (argc < 2 || atoi(argv[1]) == 0) rounds = 4;
-   else rounds = atoi(argv[1]);
+    // set rounds with command-line args, default to 4
+    if (argc < 2 || atoi(argv[1]) == 0) rounds = 4;
+    else rounds = atoi(argv[1]);
 
-   printf("Will run %d rounds\n", rounds);
+    printf("Will run %d rounds\n", rounds);
 
-   for (i = 0; i < PH; i++) eat_count[i] = 0;
+    for (i = 0; i < PH; i++) eat_count[i] = 0;
 
-   pthread_mutex_init(&output_lock, NULL);
+    chopsticks_init(); // initialize chopsticks
+    pthread_attr_init(&attr); // set default attributes
+    pthread_setconcurrency(PH); // suggest PH kernel threads for this process
+    pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM); // set system-wide contention scope
 
-   chopsticks_init(); // initialize chopsticks
-   pthread_attr_init(&attr); // set default attributes
-   pthread_setconcurrency(PH); // suggest PH kernel threads for this process
-   pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM); // set system-wide contention scope
+    // start up the philosopher threads
+    for (i = 0; i < PH; i++) {
+       no[i] = i;
+       pthread_create(&tid[i], NULL, phil_exec, (int *) &no[i]);
+    }
 
-   // start up the philosopher threads
-   for (i = 0; i < PH; i++) {
-      no[i] = i;
-      pthread_create(&tid[i], NULL, phil_exec, (int *) &no[i]);
-   }
+    // wait for threads to finish
+    for (i = 0; i < PH; i++) pthread_join(tid[i], NULL);
+    for (i = 0; i < PH; i++) fprintf (stderr, "philospher %d ate %d times\n", i, eat_count [i]);
 
-   // wait for threads to finish
-   for (i = 0; i < PH; i++) pthread_join(tid[i], NULL);
-   for (i = 0; i < PH; i++) fprintf (stderr, "philospher %d ate %d times\n", i, eat_count [i]);
-
-   return 0;
+    return 0;
 }
