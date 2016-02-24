@@ -11,18 +11,18 @@
 #include <string.h>
 #include <time.h>
 
-#define NTHREADS 5
-#define LEFT (i+NTHREADS-1)%NTHREADS
-#define RIGHT (i+1)%NTHREADS
+#define PH 5
+#define LEFT (i+PH-1)%PH
+#define RIGHT (i+1)%PH
 #define TK 1 // thinking
 #define HG 2 // hungry
 #define ET 3 // eating
 #define lock pthread_mutex_lock
 #define unlock pthread_mutex_unlock
 
-pthread_cond_t CV[NTHREADS];
+pthread_cond_t CV[PH];
 pthread_mutex_t M, output_lock; // the output_lock mutex circumvents annoying stdout interleaving
-int state[NTHREADS]; // state array
+int state[PH]; // state array
 
 int update_state(int i) {
 	if (state[i] == HG && state[LEFT] != ET && state[RIGHT] != ET) {
@@ -36,7 +36,7 @@ void chopsticks_init() {
 	int i;
 	pthread_mutex_init(&M, NULL);
 
-	for (i = 0; i < NTHREADS; i++) {
+	for (i = 0; i < PH; i++) {
 		pthread_cond_init (&CV[i], NULL);
 		state[i] = TK;
 	}
@@ -58,10 +58,8 @@ void chopsticks_put(int i) {
 	unlock(&M);
 }
 
-// PHILOSOPHRES CODE FILE BELOW
-
 int nsteps, maxsteps = 0;  /* number of steps to run this test */
-int eat_count[NTHREADS];          /* number of steps for each thread */
+int eat_count[PH];          /* number of steps for each thread */
 
 /* The subprogram trace is for testing and debugging.
 *    It allows us to see what is happening,
@@ -70,74 +68,62 @@ int eat_count[NTHREADS];          /* number of steps for each thread */
 *           */
 
 void trace(int i, char *s) {
-/* print out message, for use in execution tracing
-*      i = philospher ID
-*           s = message
-*              */
-	lock(&output_lock);
+   // i = philospher ID
+   // s = message
+	
+   lock(&output_lock);
 	if (strcmp (s, "eating") == 0) eat_count [i]++;
-/*
-*   fprintf(stdout,"%d: %s\n",i,s);
-*    */
-	if (nsteps++ > maxsteps) {
-/* don't exit while we are holding any chopsticks */
+   //   fprintf(stdout,"%d: %s\n",i,s);
+	
+   if (nsteps++ > maxsteps) {
 		if (strcmp(s,"thinking") == 0) {
 			unlock(&output_lock);
-/*
-*       fprintf (stderr, "thread done\n");
-*        */
+         // fprintf (stderr, "thread done\n");
 			pthread_exit(0);
 		}
 	}
-	unlock(&output_lock);
+	
+   unlock(&output_lock);
 }
 
-void * philosopher_body(void *arg) {
-int self = *(int *) arg;
-for (;;) {
-trace(self,"thinking");
-chopsticks_take(self);
-trace(self,"eating");
-chopsticks_put(self);
-}
-}
-
-int main() {
-int i;
-pthread_t tid[NTHREADS]; /* IDs of the philospher threads */
-int       no[NTHREADS]; /* corresponding table position numbers*/
-pthread_attr_t attr;
-
-for (i = 0; i < NTHREADS; i++) eat_count [i] = 0;
-
-pthread_mutex_init(&output_lock, NULL);
-
-/* initialize the object chopsticks */
-chopsticks_init();
-
-fprintf(stdout,"enter number of steps to run: "); fflush(stdout);
-fscanf(stdin,"%d",&maxsteps);
-
-pthread_attr_init (&attr); /* sets default attributes */
-
-pthread_setconcurrency (4);
-/* suggest four kernel threads for this process */
-
-pthread_attr_setscope (&attr, PTHREAD_SCOPE_SYSTEM);
-/* set system-wide contention scope */
-
-/* start up the philosopher threads */
-for (i = 0; i < NTHREADS; i++) {
-no[i] = i;
-pthread_create(&tid[i], NULL, philosopher_body, (int *) &no[i]);
+void * phil_exec(void *arg) {
+   int self = *(int *) arg;
+   for (;;) {
+      trace(self,"thinking");
+      chopsticks_take(self);
+      trace(self,"eating");
+      chopsticks_put(self);
+   }
 }
 
-/* wait for all the threads to shut down */
-for (i = 0; i < NTHREADS; i++) pthread_join(tid[i], NULL);
+int main(int argc, char *argv[]) {
+   int i;
+   pthread_t tid[PH]; // IDs of the philospher threads
+   int no[PH]; // corresponding table position numbers
+   pthread_attr_t attr;
+   
+   if (argc < 2 && atoi(argv[1]) == 0) maxsteps = 4;
+   else maxsteps = atoi(argv[1]);
 
-for (i = 0; i < NTHREADS; i++) {
-fprintf (stderr, "philospher %d ate %d times\n", i, eat_count [i]);
-}
+   for (i = 0; i < PH; i++) eat_count[i] = 0;
 
-return 0;
+   pthread_mutex_init(&output_lock, NULL);
+
+   chopsticks_init(); // initialize chopsticks
+   pthread_attr_init(&attr); // set default attributes
+   pthread_setconcurrency(4); // suggest four kernel threads for this process
+   pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM); // set system-wide contention scope
+
+   // start up the philosopher threads
+   for (i = 0; i < PH; i++) {
+      no[i] = i;
+      pthread_create(&tid[i], NULL, phil_exec, (int *) &no[i]);
+   }
+
+   // wait for threads to finish
+   for (i = 0; i < PH; i++) pthread_join(tid[i], NULL);
+
+   for (i = 0; i < PH; i++) fprintf (stderr, "philospher %d ate %d times\n", i, eat_count [i]);
+
+   return 0;
 }
