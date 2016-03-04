@@ -1,3 +1,3 @@
 env = Environment()
-env.MergeFlags('-pthread')
+env.MergeFlags('-pthread', '-O2')
 env.Program('phil', 'philosopher/BJS_phil.c')
