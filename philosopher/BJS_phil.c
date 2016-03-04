@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
 
     // wait for threads to finish
     for (i = 0; i < PH; i++) pthread_join(tid[i], NULL);
-    for (i = 0; i < PH; i++) fprintf (stderr, "philospher %d ate %d times\n", i, eat_count [i]);
+    for (i = 0; i < PH; i++) fprintf (stdout, "philospher %d ate %d times\n", i, eat_count [i]);
 
     return 0;
 }
