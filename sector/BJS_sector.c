@@ -10,6 +10,9 @@
 #include <pthread.h>
 #include <string.h>
 
+#define ptc pthread_create
+#define ptj pthread_join
+
 static int fcfs_total, sstf_total, scan_total, cscan_total, look_total, clook_total;
 
 void *fcfs(void *p) {
@@ -45,7 +48,30 @@ int main() {
       j++;
    }
 
+   if (ptc(&t1, NULL, fcfs, (void*) sectors)
+   | ptc(&t2, NULL, sstf, (void*) sectors)
+   | ptc(&t3, NULL, scan, (void*) sectors)
+   | ptc(&t4, NULL, cscan, (void*) sectors)
+   | ptc(&t5, NULL, look, (void*) sectors)
+   | ptc(&t6, NULL, clook, (void*) sectors)) {
+      fprintf(stderr,"Thread creation error\n");
+      exit(EXIT_FAILURE);
+   }
+   
+   ptj(t1, NULL);
+   ptj(t2, NULL);
+   ptj(t3, NULL);
+   ptj(t4, NULL);
+   ptj(t5, NULL);
+   ptj(t6, NULL);
 
+   printf("Total head movement for each disk scheduling algorithm:\n
+         FCFS:\t%d\n
+         SSTF:\t%d\n
+         SCAN:\t%d\n
+         C-SCAN\t%d\n
+         LOOK:\t%d\n
+         C-LOOK:\t%d\n");
 
    return 0;
 }
