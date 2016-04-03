@@ -16,7 +16,10 @@
 static int fcfs_total, sstf_total, scan_total, cscan_total, look_total, clook_total;
 
 void *fcfs(void *p) {
+   int *s = p;
+   int start, i;
 
+   for (i=1,i<=1001,i++) fcfs_total += abs( *(s+i) - *(s+(i-1)) );
 }
 
 void *sstf(void *p) {
@@ -65,7 +68,7 @@ int main() {
    ptj(t5, NULL);
    ptj(t6, NULL);
 
-   printf("Total head movement for each disk scheduling algorithm:\nFCFS:\t%d\nSSTF:\t%d\nSCAN:\t%d\nC-SCAN\t%d\nLOOK:\t%d\nC-LOOK:\t%d\n",fcfs_total, sstf_total, scan_total, cscan_total, look_total, clook_total);
+   printf("Total head movement for each disk scheduling algorithm:\nFCFS\t%d\nSSTF\t%d\nSCAN\t%d\nC-SCAN\t%d\nLOOK\t%d\nC-LOOK\t%d\n",fcfs_total, sstf_total, scan_total, cscan_total, look_total, clook_total);
 
    return 0;
 }
