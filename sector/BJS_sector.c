@@ -19,7 +19,7 @@ void *fcfs(void *p) {
    int *s = p;
    int start, i;
 
-   for (i=1,i<=1001,i++) fcfs_total += abs( *(s+i) - *(s+(i-1)) );
+   for (i=1;i<=1001;i++) fcfs_total += abs( *(s+i) - *(s+(i-1)) );
 }
 
 void *sstf(void *p) {
