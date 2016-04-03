@@ -15,4 +15,4 @@ script:
 - $CC --version
 - scons
 - wget https://raw.githubusercontent.com/therealartifex/operating-systems/master/sector/sector.txt
-- ./sector < sector.txt
+- ./sect < sector.txt
