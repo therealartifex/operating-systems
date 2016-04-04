@@ -30,7 +30,7 @@ void *sstf(void *p) {
    // Enclose this loop in another for loop that will add up the total head movement
    // Also find a way to remove sectors that have already been processed
    for (i=2; i<=1001;i++) {
-      currentDist = abs(init-arr[i]);
+      currentDist = abs(init - *(s+i));
       if (currentDist < minDist) {
          index = i;
          minDist = currentDist;
