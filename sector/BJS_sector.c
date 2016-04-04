@@ -25,20 +25,27 @@ void *fcfs(void *p) {
 void *sstf(void *p) {
    int *s = p;
    int init = *s;
-   int index, i, currentDist, minDist=abs(init - *(s+1));
+   int index, i, j, currentDist, minDist=abs(init - *(s+1));
 
    // Enclose this loop in another for loop that will add up the total head movement
    // Also find a way to remove sectors that have already been processed
-   for (i=2; i<=1001;i++) {
-      currentDist = abs(init - *(s+i));
-      if (currentDist < minDist) {
-         index = i;
-         minDist = currentDist;
-      }
-   }
-
    
-   sstf_total;
+
+   for (j=1;j<=1001;j++) {
+      if (*(s+j) == -1) continue;
+      
+      for (i=2; i<=1001;i++) {
+         currentDist = abs(init - *(s+i));
+         if (currentDist < minDist) {
+            index = i;
+            minDist = currentDist;
+         }
+      }
+
+      sstf_total += abs(init - *(s+index));
+      init = *(s+index);
+      *(s+index) = -1;
+   }
 }
 
 void *scan(void *p) {
