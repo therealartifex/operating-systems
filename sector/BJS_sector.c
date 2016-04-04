@@ -17,12 +17,19 @@ static int fcfs_total, sstf_total, scan_total, cscan_total, look_total, clook_to
 
 void *fcfs(void *p) {
    int *s = p;
-   int start, i;
+   int i;
 
    for (i=1;i<=1001;i++) fcfs_total += abs( *(s+i) - *(s+(i-1)) );
 }
 
 void *sstf(void *p) {
+   int i = 0, min = 5000, init = 36;
+   int test[] = {24, 32, 67, 98, 11, 42, 73, 80, 56, 2};
+   
+   for (i=0;i<10;i++) {
+      min = min(abs(init-test[i]),min);
+   }
+   sstf_total = min;
 
 }
 
@@ -39,6 +46,16 @@ void *look(void *p) {
 }
 
 void *clook(void *p) {
+
+}
+
+int getClosest(int init, int[] arr) {
+   int index=0, i=0, minDist=abs(init-arr[0]);
+   
+   for (i=1; i<1001;i++) {
+
+   }
+
 
 }
 
