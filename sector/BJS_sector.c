@@ -25,26 +25,13 @@ void *fcfs(void *p) {
 void *sstf(void *p) {
    int *s = p;
    int init = *s;
-   int index, i, j, currentDist, minDist=abs(init - *(s+1));
+   int i;
 
-   // Enclose this loop in another for loop that will add up the total head movement
-   // Also find a way to remove sectors that have already been processed
-   
-
-   for (j=1;j<=1001;j++) {
-      if (*(s+j) == -1) continue;
-      
-      for (i=2; i<=1001;i++) {
-         currentDist = abs(init - *(s+i));
-         if (currentDist < minDist) {
-            index = i;
-            minDist = currentDist;
-         }
-      }
-
-      sstf_total += abs(init - *(s+index));
-      init = *(s+index);
-      *(s+index) = -1;
+   for (i=1;i<=1001;i++) {
+      if (*(s+i) == -1) continue;
+      int nextIndex = getClosest(init, 1001, p);
+      sstf_total += abs(init - *(s+nextIndex));
+      init = *(s+nextIndex);
    }
 }
 
@@ -64,18 +51,19 @@ void *clook(void *p) {
 
 }
 
-int getClosest(int init, int arr[]) {
-   int index, i, currentDist, minDist=abs(init-arr[0]);
+int getClosest(int init, int len, void *p) {
+   int *arr = p;
+   int index, i, currentDist, minDist=abs(init-*arr);
 
-   for (i=1; i<=10;i++) {
-      currentDist = abs(init-arr[i]);
+   for (i=1; i<=len;i++) {
+      currentDist = abs(init-*(arr+i));
       if (currentDist < minDist) {
          index = i;
          minDist = currentDist;
       }
    }
 
-   return arr[index];
+   return index;
 }
 
 int main() {
