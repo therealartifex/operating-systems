@@ -43,15 +43,15 @@ void *scan(void *p) {
    if (nextScan < 2500) {
       for (i=1;i<=1001;i++) {
          if (*(s+i) < nextScan) {
+            scan_total += abs(*(s+i) - nextScan);
             nextScan = *(s+i);
-            scan_total += abs(*(s+(i-1)) - nextScan);
          }
       }
    } else {
       for (i=1;i<=1001;i++) {
-         if (*(s+i) < nextScan) {
+         if (*(s+i) > nextScan) {
+            scan_total += abs(*(s+i) - nextScan);
             nextScan = *(s+i);
-            scan_total += abs(*(s+(i-1)) - nextScan);
          }
       }
    }  
