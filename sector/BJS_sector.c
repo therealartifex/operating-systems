@@ -36,7 +36,25 @@ void *sstf(void *p) {
 }
 
 void *scan(void *p) {
+   int *s = p;
+   int i, nextScan;
+   nextScan = *s;
 
+   if (nextScan < 2500) {
+      for (i=1;i<=1001;i++) {
+         if (*(s+i) < nextScan) {
+            nextScan = *(s+i);
+            scan_total += abs(*(s+(i-1)) - nextScan);
+         }
+      }
+   } else {
+      for (i=1;i<=1001;i++) {
+         if (*(s+i) < nextScan) {
+            nextScan = *(s+i);
+            scan_total += abs(*(s+(i-1)) - nextScan);
+         }
+      }
+   }  
 }
 
 void *cscan(void *p) {
