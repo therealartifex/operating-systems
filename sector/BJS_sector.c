@@ -1,8 +1,11 @@
 /* Brian Scott
 * COSC 3603-01
-* 01 Apr 2016
+* 05 Apr 2016
 * Disk scheduling algorithms
 */
+
+
+// PROGRAM UNFINISHED
 
 #include <stdio.h>
 #include <stdlib.h>
