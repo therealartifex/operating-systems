@@ -40,11 +40,11 @@ void *sstf(void *p) {
 
 void *scan(void *p) {
    int *s = p;
-   int i;
+   int i, nextScan;
    int start = *s;
-
+   
    if (start < 2500) {
-      int nextScan = start;
+      nextScan = start;
       for (i=1;i<=1001;i++) {
          if (*(s+i) < nextScan) {
             scan_total += abs(*(s+i) - nextScan);
