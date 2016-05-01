@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,margin=1cm,top=1in,footskip=0.5cm]{geometry}
+\begin{document}
+\section{Chapter 1}\newpage
+\section{Chapter 2}\newpage
+\section{Chapter 3}\newpage
+\section{Chapter 4}\newpage
+\section{Chapter 5}\newpage
+\section{Chapter 6}\newpage
+\section{Chapter 7}\newpage
+\section{Chapter 8}\newpage
+\section{Chapter 9}\newpage
+\section{Chapter 10}\newpage
+\section{Chapter 11}\newpage
+\section{Chapter 12}\newpage
+\section{Chapter 13}\newpage
+\section*{\centering Chapter 14}
+In an access matrix, the control right allows a process to change the entries in a row.\\[2mm]
+An advantage of compiler-based enforcement is that access privileges are closely related to the linguistic concept of a data type.\\[2mm]
+In capability lists, each object has a tag to denote its type, whether capability or accessible data.\\[2mm]
+In a paired password system, the computer supplies one part of a password and the user enters the other part.\\[2mm]
+In the UNIX operating system, a domain is associated with the user.\\[2mm]
+In the reacquisition scheme for implementing the revocation of capabilities, capabilities are periodically deleted from each domain.\\[2mm]
+The global table implementation of an access table consists of sets of ordered triples.\\[2mm]
+Domains may share access rights.\\[2mm]
+Most systems do use a combination of access lists and capabilities.\\[2mm]
+The lock-key scheme is a compromise between access lists and capability lists.\\[2mm]
+The "key" scheme for implementing revocation does not allow selective revocation.\\[2mm]
+The problem of guaranteeing that no information initially held in an object can migrate outside of its execution environment is called the confinement problem.\\[2mm]
+Regarding the relative merits between access rights enforcement based solely on a kernel, as opposed to enforcement provided largely by a compiler, enforcement by the kernel is less flexible than enforcement by the programming language for user-defined policy.\\[2mm]
+When a class is loaded in Java, the JVM assigns the class to a protection domain that gives the permissions of that class. 
+In general, an access matrix is sparse, not dense.\\[2mm]
+The two general types of objects in a system are hardware objects (CPU, memory segments, printers, disks, tape drives) and software objects (files, programs, semaphores). Each object has a unique name that differentiates it from all other objects in the system, and each can be accessed only through well-defined and meaningful operations. Objects are essentially abstract data types.\\[2mm]
+A global table implementation of an access matrix is not typically implemented because it is usually large and thus cannot be kept in main memory, so additional I/O is needed. In addition, it is difficult to take advantage of special groupings of objects or domains. For example, if everyone can read a particular object, this object must have a separate entry in every domain.
+In the MULTICS system, the protection domains are organized hierarchically into a ring structure.\\[2mm]
+A capability list associated with a domain is never directly accessible to a process executing in that domain.\\[2mm]
+Implementations of an access matrix: Global Table, Access Lists for Objects, Capability Lists for Domains, Lock-Key Mechanism.\\[2mm]
+A domain can be realized in a variety of ways: each user may be a domain, each process may be a domain, and each procedure may be a domain.
+\newpage
+
+\section*{\centering Chapter 15}
+Spyware is not considered a crime in most countries.\\[2mm]
+The most common method used by attackers to breach security is masquerading.\\[2mm]
+Worms use the spawn mechanism to ravage system performance, can shut down an entire network, and continue to grow as the Internet expands.\\[2mm]
+In a paired-password system, the computer supplies one part of a password and the user enters the other part.\\[2mm]
+The two main varieties of authentication algorithms are the message-authentication code, which uses symmetric encryption, and the digital-signature algorithm.\\[2mm]
+Tripwire does not provide a way to distinguish between an authorized and an unauthorized change.\\[2mm]
+The two main methods used for intrusion detection are signature-based detection, and anomaly detection.\\[2mm]
+A code segment that misuses its environment is called a Trojan horse.\\[2mm]
+Network-layer security generally has been standardized on IPsec.\\[2mm]
+Generally, it is impossible to prevent denial-of-service attacks.\\[2mm]
+A polymorphic virus changes each time it is installed to avoid detection by antivirus software.\\[2mm]
+A denial of service attack is aimed at disrupting legitimate use of a system.\\[2mm]
+A digital certificate is a public key digitally signed by a trusted party.\\[2mm]
+The four levels of security measures that are necessary for system protection are: physical, human, operating system, and network.\\[2mm]
+It is not easier to protect against malicious misuse than against accidental misuse.\\[2mm]
+Biometric devices are currently too large and expensive to be used for normal computer authentication.\\[2mm]
+RC4 is a symmetric stream cipher.\\[2mm]
+A trap door is a hole in the software of a system or program that only the programmer is capable of using. Trap doors are problematic because detection requires careful analysis of all the source code for all components of a system.\\[2mm]
+Modern cryptography is based on secrets called keys that are selectively distributed to computers in a network and used to process messages.\\[2mm]
+In a symmetric encryption algorithm, the same key is used to encrypt and to decrypt. In an asymmetric encryption algorithm, the keys for encryption and decryption are different.\\[2mm]
+Port scanning is a means of detecting a system’s vulnerabilities. Because port scans are detectable, they frequently are launched from zombie systems.\\[2mm]
+The stack overflow or buffer overflow attack is the most common way for an attacker outside the system, on a network or dial-up connection, to gain unauthorized access to the target system.\\[2mm]
+Viruses require the spreading of an infected host file, worms are standalone software and do not require a host program or human help to propagate.\\[2mm]
+SSL is commonly used for secure communication on the Internet.
+\newpage
+
+\section*{\centering Chapter 16}
+Binary translation allows for virtualization on systems that do not have a clean separation between privileged and non-privileged instructions.\\[2mm]
+Microsoft .NET and the Java virtual machine are examples of programming environment virtualization.\\[2mm]
+VMware Workstation is a popular commercial application that abstracts Intel 80XXx86 hardware into isolated virtual machines.\\[2mm]
+All major general-purpose CPUs do now provide extended amounts of hardware support for virtualization.\\[2mm]
+Guests do not share a VCPU.\\[2mm]
+Some level of hardware support is required to provide virtualization.\\[2mm]
+Type 2 hypervisors tend to have poorer performance than type 0 and type 1 hypervisors because of the extra overhead of running a general-purpose operating system as well as guest operating systems. Furthermore, a user needs administrative privileges to access many of the hardware assistance features of modern CPUs.\\[2mm]
+The use of nested page tables (NPT) can cause TLB misses to increase.\\[2mm]
+With virtualization, the virtual machine uses hardware directly, although there is an overarching scheduler. With emulation, applications written for one hardware environment can run on a very different hardware environment, such as a different type of CPU. Since emulators allow an entire machine can be created as a virtual construct, there are a wider variety of opportunities, but with an emulation penalty (the processing cycles needed to emulate the hardware).\\[2mm]
+Virtual machines are not a recent technological idea.\\[2mm]
+Trap-and-emulate allows a virtual machine to behave as if it is acting in kernel mode.\\[2mm]
+Live migration is not found in general-purpose operating systems but is present in type 0 and type 1 hypervisors.\\[2mm]
+A program written for the Java virtual machine need not worry about the specifics of the hardware or the operating system on which it will run.\\[2mm]
+Overcommitment occurs when a virtual machine is configured with more virtual CPUs than there are physical CPUs.\\[2mm]
+In a virtual machine, each program believes that it has more memory than is physically available on the machine.\\[2mm]
+The virtual-machine concept does offer complete protection of the various system resources.\\[2mm]
+Using less physical memory than an actual operating system is not an example of a benefit of virtual machines.\\[2mm]
+The JVM automatically manages memory by performing garbage collection. After a class is loaded, the verifier checks that the .class file is valid Java bytecode and that it does not overflow or underflow the stack. It also ensures that the bytecode does not perform pointer arithmetic, which could provide illegal memory access.\\[2mm]
+Two faster alternatives to implementing the JVM in software on top of a host operating system include using a just-in-time (JIT) compiler and running the JVM in hardware.\\[2mm]
+When an OS is running as a virtual machine in a hypervisor, some of its instruction may conflict with the host operating system. Thus, the hypervisor emulates the effect of that specific instruction or action without it being carried out. Therefore, the host OS is not affected by the guest's actions. This is called trap-and-emulate.\\[2mm]
+\newpage
+
+\section*{\centering Chapter 17}
+An Ethernet network has no central controller.\\[2mm]
+Every Ethernet device has a unique byte number, called the MAC address.\\[2mm]
+The data-link layer is responsible for handling frames, or fixed-length parts of packets, including any error detection and recovery that occurs in the physical layer.\\[2mm]
+The session layer is not a layer in the TCP/IP reference model.\\[2mm]
+The packet switching connection strategy involves breaking up a message into a number of packets that must be reassembled upon arrival.\\[2mm]
+The SSH utility creates an encrypted socket connection between the local machine and the remote machine. After this connection has been established, the networking software creates a transparent, bidirectional link so that all characters entered by the user are sent to a process on the remote machine and all the output from that process is sent back to the user.\\[2mm]
+The first approach to data migration is to transfer the whole file. When the user no longer needs access to the file, a copy of the entire file (if it has been modified) is sent back. The second approach is to transfer only the portions of the file that are necessary for the immediate task. If another portion is required later, another transfer will take place. When the user no longer wants to access the file, any part of it that has been modified must be sent back.\\[2mm]
+Reasons for implementing process migration include load balancing, computation speedup, hardware preference, software preference, and data access.\\[2mm]
+Fixed routing cannot adapt to link failures or load changes.\\[2mm]
+WANs tend to have a slower speed and higher error rate than their LAN counterparts.\\[2mm]
+The SFTP ``get'' command transfers a file from a remote machine to the local machine.\\[2mm]
+A checksum is used for detection of packet damage.\\[2mm]
+The four major reasons for building distributed systems are as follows: resource sharing, computation speedup, reliability, and communication.\\[2mm]
+The OSI model describes the various layers of networking in a logical format. The TCP/IP model is a partial implementation of the OSI model, specifically the application, transport, and network layers.\\[2mm]
+Computation migration is a transference of computational work across a system. Essentially, instead of downloading a resource and processing it on the local machine, it sends the instructions for processing to the remote machine, and retrieves the results when processing is finished.\\[2mm]
+The physical layer in the OSI network model is responsible for handling both the mechanical and the electrical details of the physical transmission of a bit stream. At the physical layer, the communicating systems must agree on the electrical representation of a binary 0 and 1, so that when data is sent as a stream of electrical signals, the receiver is able to interpret the data properly as binary data. This layer is implemented in the hardware of the networking device. It is essentially responsible for delivering bits.\\[2mm]
+In a distributed system, a site usually indicates the location of a machine.\\[2mm]
+Software neutrality is not considered a benefit of process migration.\\[2mm]
+TCP is a reliable, connection-oriented protocol.\\[2mm]
+Load sharing involves the movement of jobs from one site to another to distribute processing more evenly on a network.\\[2mm]
+In fixed routing, a path from A to B is specified in advance and does not change unless a hardware failure disables it. In dynamic routing, the path used to send a message from A to B is chosen only when the message is sent. Because the decision is made dynamically, separate messages may be assigned different paths.\\[2mm]
+Circuit switching requires substantial setup time and may waste network bandwidth, but it incurs less overhead for shipping each message. Conversely, message and packet switching require less setup time but incur more overhead per message. Also, in packet switching, each message must be divided into packets and later reassembled.\\[2mm]
+\end{document}
