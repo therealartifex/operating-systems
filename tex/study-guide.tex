@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper,margin=1cm,top=0.5in,footskip=0.5cm]{geometry}
 \usepackage{soul}
@@ -69,26 +69,26 @@ SSL is commonly used for secure communication on the Internet.
 \newpage
 
 \section*{\centering Chapter 16}
-Binary translation allows for virtualization on systems that do not have a clean separation between privileged and non-privileged instructions.\\[2mm]
-Microsoft .NET and the Java virtual machine are examples of programming environment virtualization.\\[2mm]
-VMware Workstation is a popular commercial application that abstracts Intel 80XXx86 hardware into isolated virtual machines.\\[2mm]
-All major general-purpose CPUs do now provide extended amounts of hardware support for virtualization.\\[2mm]
-Guests do not share a VCPU.\\[2mm]
-Some level of hardware support is required to provide virtualization.\\[2mm]
-Type 2 hypervisors tend to have poorer performance than type 0 and type 1 hypervisors because of the extra overhead of running a general-purpose operating system as well as guest operating systems. Furthermore, a user needs administrative privileges to access many of the hardware assistance features of modern CPUs.\\[2mm]
-The use of nested page tables (NPT) can cause TLB misses to increase.\\[2mm]
-With virtualization, the virtual machine uses hardware directly, although there is an overarching scheduler. With emulation, applications written for one hardware environment can run on a very different hardware environment, such as a different type of CPU. Since emulators allow an entire machine can be created as a virtual construct, there are a wider variety of opportunities, but with an emulation penalty (the processing cycles needed to emulate the hardware).\\[2mm]
-Virtual machines are not a recent technological idea.\\[2mm]
-Trap-and-emulate allows a virtual machine to behave as if it is acting in kernel mode.\\[2mm]
-Live migration is not found in general-purpose operating systems but is present in type 0 and type 1 hypervisors.\\[2mm]
-A program written for the Java virtual machine need not worry about the specifics of the hardware or the operating system on which it will run.\\[2mm]
-Overcommitment occurs when a virtual machine is configured with more virtual CPUs than there are physical CPUs.\\[2mm]
-In a virtual machine, each program believes that it has more memory than is physically available on the machine.\\[2mm]
-The virtual-machine concept does offer complete protection of the various system resources.\\[2mm]
-Using less physical memory than an actual operating system is not an example of a benefit of virtual machines.\\[2mm]
-The JVM automatically manages memory by performing garbage collection. After a class is loaded, the verifier checks that the .class file is valid Java bytecode and that it does not overflow or underflow the stack. It also ensures that the bytecode does not perform pointer arithmetic, which could provide illegal memory access.\\[2mm]
-Two faster alternatives to implementing the JVM in software on top of a host operating system include using a just-in-time (JIT) compiler and running the JVM in hardware.\\[2mm]
-When an OS is running as a virtual machine in a hypervisor, some of its instruction may conflict with the host operating system. Thus, the hypervisor emulates the effect of that specific instruction or action without it being carried out. Therefore, the host OS is not affected by the guest's actions. This is called trap-and-emulate.\\[2mm]
+\qw{Binary translation} allows for virtualization on systems that do not have a clean separation between privileged and non-privileged instructions.\\[2mm]
+Microsoft .NET and the Java virtual machine are examples of \qw{programming environment virtualization}.\\[2mm]
+\qw{VMware Workstation} is a popular commercial application that abstracts Intel 80XX/x86 hardware into isolated virtual machines.\\[2mm]
+All major general-purpose CPUs \qw{do now provide} extended amounts of hardware support for virtualization.\\[2mm]
+Guests \qw{do not share} a VCPU.\\[2mm]
+Some level of hardware support \qw{is required} to provide virtualization.\\[2mm]
+Type 2 hypervisors tend to have poorer performance than type 0 and type 1 hypervisors because of the \qw{extra overhead} of running a general-purpose operating system as well as guest operating systems. Furthermore, a \qw{user needs administrative privileges} to access many of the hardware assistance features of modern CPUs.\\[2mm]
+The use of nested page tables (NPT) can cause TLB misses to \qw{increase}.\\[2mm]
+With \qw{virtualization}, the virtual machine \qw{uses hardware directly}, although there is an overarching scheduler. With \qw{emulation}, applications written for one hardware environment \qw{can run on a very different hardware environment}, such as a different type of CPU. Since emulators allow \qw{an entire machine can be created as a virtual construct}, there are a wider variety of opportunities, but with an emulation penalty (the processing cycles needed to emulate the hardware).\\[2mm]
+Virtual machines \qw{are not} a recent technological idea.\\[2mm]
+\qw{Trap-and-emulate} allows a virtual machine to behave as if it is acting in kernel mode.\\[2mm]
+Live migration is \qw{not found in general-purpose operating systems} but is \qw{present in type 0 and type 1 hypervisors}.\\[2mm]
+A program written for the Java virtual machine need \qw{not worry about the specifics of the hardware} or the operating system on which it will run.\\[2mm]
+\qw{Overcommitment} occurs when a virtual machine is configured with more virtual CPUs than there are physical CPUs.\\[2mm]
+In a virtual machine, each program believes that it has \qw{more memory than is physically available on the machine}.\\[2mm]
+The virtual-machine concept \qw{does offer complete protection} of the various system resources.\\[2mm]
+\qw{Using less physical memory than an actual operating system} is not an example of a benefit of virtual machines.\\[2mm]
+The JVM automatically manages memory by performing \qw{garbage collection}. After a class is loaded, the verifier checks that the .class file is valid Java bytecode and that it \qw{does not overflow or underflow the stack}. It also ensures that the bytecode does not perform \qw{pointer arithmetic}, which could provide \qw{illegal memory access}.\\[2mm]
+Two faster alternatives to implementing the JVM in software on top of a host operating system include using a \qw{just-in-time (JIT) compiler} and \qw{running the JVM in hardware}.\\[2mm]
+When an OS is running as a virtual machine in a hypervisor, some of its instruction may conflict with the host operating system. Thus, the hypervisor emulates the effect of that specific instruction or action without it being carried out. Therefore, the host OS is not affected by the guest's actions. This is called \qw{trap-and-emulate}.\\[2mm]
 \newpage
 
 \section*{\centering Chapter 17}
