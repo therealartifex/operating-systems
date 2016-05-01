@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[a4paper,margin=1cm,top=1in,footskip=0.5cm]{geometry}
+\usepackage[a4paper,margin=1cm,top=0.5in,footskip=0.5cm]{geometry}
+\newcommand{\qw}[1]{\textbf{\underline{#1}}}
 \begin{document}
 \section{Chapter 1}\newpage
 \section{Chapter 2}\newpage
@@ -16,27 +17,27 @@
 \section{Chapter 12}\newpage
 \section{Chapter 13}\newpage
 \section*{\centering Chapter 14}
-In an access matrix, the control right allows a process to change the entries in a row.\\[2mm]
-An advantage of compiler-based enforcement is that access privileges are closely related to the linguistic concept of a data type.\\[2mm]
-In capability lists, each object has a tag to denote its type, whether capability or accessible data.\\[2mm]
-In a paired password system, the computer supplies one part of a password and the user enters the other part.\\[2mm]
-In the UNIX operating system, a domain is associated with the user.\\[2mm]
-In the reacquisition scheme for implementing the revocation of capabilities, capabilities are periodically deleted from each domain.\\[2mm]
-The global table implementation of an access table consists of sets of ordered triples.\\[2mm]
-Domains may share access rights.\\[2mm]
-Most systems do use a combination of access lists and capabilities.\\[2mm]
-The lock-key scheme is a compromise between access lists and capability lists.\\[2mm]
-The "key" scheme for implementing revocation does not allow selective revocation.\\[2mm]
-The problem of guaranteeing that no information initially held in an object can migrate outside of its execution environment is called the confinement problem.\\[2mm]
-Regarding the relative merits between access rights enforcement based solely on a kernel, as opposed to enforcement provided largely by a compiler, enforcement by the kernel is less flexible than enforcement by the programming language for user-defined policy.\\[2mm]
-When a class is loaded in Java, the JVM assigns the class to a protection domain that gives the permissions of that class. 
-In general, an access matrix is sparse, not dense.\\[2mm]
-The two general types of objects in a system are hardware objects (CPU, memory segments, printers, disks, tape drives) and software objects (files, programs, semaphores). Each object has a unique name that differentiates it from all other objects in the system, and each can be accessed only through well-defined and meaningful operations. Objects are essentially abstract data types.\\[2mm]
-A global table implementation of an access matrix is not typically implemented because it is usually large and thus cannot be kept in main memory, so additional I/O is needed. In addition, it is difficult to take advantage of special groupings of objects or domains. For example, if everyone can read a particular object, this object must have a separate entry in every domain.
-In the MULTICS system, the protection domains are organized hierarchically into a ring structure.\\[2mm]
-A capability list associated with a domain is never directly accessible to a process executing in that domain.\\[2mm]
-Implementations of an access matrix: Global Table, Access Lists for Objects, Capability Lists for Domains, Lock-Key Mechanism.\\[2mm]
-A domain can be realized in a variety of ways: each user may be a domain, each process may be a domain, and each procedure may be a domain.
+In an access matrix, the \qw{control} right allows a process to change the entries in a \qw{row}.\\[2mm]
+An advantage of compiler-based enforcement is that \qw{access privileges are closely related to the linguistic concept of a data type}.\\[2mm]
+In capability lists, each object has a \qw{tag} to denote its type, whether capability or accessible data.\\[2mm]
+In a paired password system, \qw{the computer supplies one part of a password and the user enters the other part}.\\[2mm]
+In the UNIX operating system, a domain is associated with the \qw{user}.\\[2mm]
+In the reacquisition scheme for implementing the revocation of capabilities, \qw{capabilities are periodically deleted from each domain}.\\[2mm]
+The \qw{global table} implementation of an access table consists of sets of ordered triples.\\[2mm]
+Domains \qw{may share access rights}.\\[2mm]
+Most systems \qw{do use} a combination of access lists and capabilities.\\[2mm]
+The \qw{lock-key scheme} is a compromise between access lists and capability lists.\\[2mm]
+The "key" scheme for implementing revocation \qw{does not} allow selective revocation.\\[2mm]
+The problem of guaranteeing that no information initially held in an object can migrate outside of its execution environment is called the \qw{confinement problem}.\\[2mm]
+Regarding the relative merits between access rights enforcement based solely on a kernel, as opposed to enforcement provided largely by a compiler, \qw{enforcement by the kernel is less flexible than enforcement by the programming language} for user-defined policy.\\[2mm]
+When a class is loaded in Java, \qw{the JVM assigns the class to a protection domain that gives the permissions of that class}.\\[2mm]
+In general, an access matrix is \qw{sparse, not dense}.\\[2mm]
+The two general types of objects in a system are \qw{hardware objects} (CPU, memory segments, printers, disks, tape drives) and \qw{software objects} (files, programs, semaphores). Each object has a unique name that differentiates it from all other objects in the system, and each can be accessed only through well-defined and meaningful operations. Objects are essentially abstract data types.\\[2mm]
+A global table implementation of an access matrix is not typically implemented because it is usually \qw{large and thus cannot be kept in main memory}, so additional I/O is needed. In addition, \qw{it is difficult to take advantage of special groupings of objects or domains}. For example, if everyone can read a particular object, this object must have a separate entry in every domain.\\[2mm]
+In the MULTICS system, the protection domains are organized hierarchically into a \qw{ring structure}.\\[2mm]
+A capability list associated with a domain is \qw{never directly accessible} to a process executing in that domain.\\[2mm]
+Implementations of an access matrix: \qw{Global Table}, \qw{Access Lists for Objects}, \qw{Capability Lists for Domains}, \qw{Lock-Key Mechanism}.\\[2mm]
+A domain can be realized in a variety of ways: \qw{each user may be a domain}, \qw{each process may be a domain}, and \qw{each procedure may be a domain}.
 \newpage
 
 \section*{\centering Chapter 15}
