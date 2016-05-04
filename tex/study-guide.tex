@@ -1,6 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper,margin=1cm,top=0.5in,footskip=0.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,fixmath}
 \usepackage{soul}
 \newcommand{\qw}[1]{\textbf{\ul{#1}}}
 \begin{document}
@@ -63,17 +64,17 @@ In general, virtual memory \qw{increases} the degree of multiprogramming in a sy
 Embedded systems almost always run \qw{real-time operating systems}.\\[2mm]
 For \qw{distributed systems}, \qw{message passing} is a more appropriate IPC mechanism than shared memory.\\[2mm]
 To improve the efficiency of I/O, we can \qw{move processing primitives into hardware}.\\[2mm]
-A 32-bit logical address with an 8 KB ($2^13$) page size \qw{will not} have 1000000, but rather \qw{524288} ($2^{32}/2^8$) entries in a conventional page table.\\[2mm]
+A 32-bit logical address with an 8 KB ($2^{13}$) page size \qw{will not} have 1000000, but rather \qw{524288} ($2^{32}/2^{13}$) entries in a conventional page table.\\[2mm]
 \qw{Execution time binding} is the method of binding instructions and data to memory performed by most general-purpose operating systems.\\[2mm]
 A message-passing model is \qw{easier to implement} than a shared memory model for \qw{intercomputer communication}.\\[2mm]
 Suppose that there are 12 resources available to three processes. At time 0, the following data is collected. The table indicates the process, the maximum number of resources needed by the process, and the number of resources currently owned by each process.\\
-\begin{table}[]
+\begin{table}[h]
 \centering
 \begin{tabular}{ccc}
 \textit{Process} & \textit{Max Needs} & \textit{Currently Owns} \\ \hline
 $P_0$ & 10 & 4 \\
 $P_1$ & 3 & 2 \\
-$P_2$ & 7 & 4
+$P_2$ & 7 & 4 \\ \hline
 \end{tabular}
 \end{table}
 The system is in a \qw{safe state}. The sequence `$P_1$, $P_2$, $P_0$' satisfies the safety condition.
