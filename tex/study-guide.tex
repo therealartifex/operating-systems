@@ -49,7 +49,7 @@ The length of a time quantum assigned by the Linux CFS scheduler \qw{is not} dep
 
 \newpage
 \section*{\centering Chapter 7}
-Suppose that there are 12 resources available to three processes. At time 0, the following data is collected. The table indicates the process, the maximum number of resources needed by the process, and the number of resources currently owned by each process.\\
+Suppose that there are 12 resources available to three processes. At time 0, the following data is collected. The table indicates the process, the maximum number of resources needed by the process, and the number of resources currently owned by each process.
 \begin{table}[H]
 \centering
 \begin{tabular}{ccc}
@@ -62,8 +62,8 @@ $P_2$ & 7 & 4 \\ \hline
 The system is in a \qw{safe state}. The sequence `$P_1$, $P_2$, $P_0$' satisfies the safety condition.
 At time $t_0$, we have 2 free resources. $P_1$ can be allocated 1 resource, 
 which it will return, giving us 4 free resources. Then $P_2$ can get the 3 resources it needs to process,
-after which we will have 8 free resources. Finally, we can give $P_0$ the 6 resources it needs to finish processing.\\[2mm]
-Suppose that there are 10 resources available to three processes. At time 0, the following data is collected. The table indicates the process, the maximum number of resources needed by the process, and the number of resources currently owned by each process.\\
+after which we will have 8 free resources. Finally, we can give $P_0$ the 6 resources it needs to finish processing.\\[4mm]
+Suppose that there are 10 resources available to three processes. At time 0, the following data is collected. The table indicates the process, the maximum number of resources needed by the process, and the number of resources currently owned by each process.
 \begin{table}[H]
 \centering
 \begin{tabular}{ccc}
@@ -75,7 +75,7 @@ $P_2$ & 6 & 4 \\ \hline
 \end{table}
 The system is in an \qw{unsafe state}. No sequence can satisfy the safety condition.
 At time $t_0$, we have 1 free resource. We can give this resource to any of the processes but none
-will have enough to finish processing and return the resource.\\[2mm]
+will have enough to finish processing and return the resource.\\[4mm]
 A cycle in a resource-allocation graph is a \qw{necessary and sufficient} condition for a deadlock in the case that each resource has \qw{exactly one} instance.\\[2mm]
 A \qw{CPU} could be preempted from a process.\\[2mm]
 The circular-wait condition for a deadlock \qw{implies the hold-and-wait condition}.\\[2mm]
@@ -87,7 +87,7 @@ Protocols to prevent hold-and-wait typically \qw{do not} also prevent starvation
 \section*{\centering Chapter 8}
 \qw{Best-fit} is the dynamic storage allocation problem that produces the smallest leftover hole in memory.\\[2mm]
 The x86-64 architecture currently provides a \qw{48-bit virtual address} with support for page sizes of 4 KB, 2 MB, or 1 GB using four levels of paging hierarchy.\\[2mm]
-A 32-bit logical address with an 8 KB ($2^13$) page size \qw{will not} have 1000000, but rather \qw{524288} ($2^{32}/2^8$) entries in a conventional page table.\\[2mm]
+A 32-bit logical address with an 8 KB ($2^{13}$) page size \qw{will not} have 1000000, but rather \qw{524288} ($2^{32}/2^{13}$) entries in a conventional page table.\\[2mm]
 \qw{Execution time binding} is the method of binding instructions and data to memory performed by most general-purpose operating systems.\\[2mm]
 
 \newpage
