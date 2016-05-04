@@ -24,9 +24,6 @@ Virtually \qw{all} modern operating systems provide support for SMP.\\[2mm]
 Privileged instructions \qw{can be attempted} from user mode.\\[2mm]
 The most common secondary storage device is the \qw{magnetic disk}.\\[2mm]
 Interrupts may be triggered by \qw{either hardware or software}.
-\newpage
-
-
 
 \section*{\centering Chapter 2}
 System calls can be run in \qw{kernel mode only}.\\[2mm]
@@ -60,9 +57,6 @@ Reading and writing to ordinary pipes on both UNIX and Windows systems \qw{can b
 For a single-processor system, there will \qw{never be more than one} process in the Running state.\\[2mm]
 A process may transition to the Ready state upon the occurrence of any the following actions:
 \qw{Completion of an I/O event, Awaiting its turn on the CPU, Newly-admitted process}.
-\newpage
-
-
 
 \section*{\centering Chapter 4}
 Sharing \qw{is not} automatically provided in Java threads\\[2mm]
@@ -86,7 +80,7 @@ A solution to the critical section problem does not have to satisfy \qw{atomicit
 A mutex lock \qw{is essentially a boolean variable}.\\[2mm]
 \qw{Every object in Java} has associated with it a single lock.\\[2mm]
 \qw{Peterson's solution} is not a technique for managing critical sections in operating systems.\\[2mm]
-The OpenMP #pragma omp critical directive \qw{behaves much like a mutex lock}.\\[2mm]
+The OpenMP \#pragma omp critical directive \qw{behaves much like a mutex lock}.\\[2mm]
 Operations on atomic integers \qw{do not} require locking.\\[2mm]
 A \qw{critical section} refers to where a process is accessing/updating shared data.\\[2mm]
 Race conditions are prevented by \qw{requiring that critical regions be protected by locks}.\\[2mm]
@@ -94,9 +88,6 @@ Race conditions are prevented by \qw{requiring that critical regions be protecte
 A \qw{memory transaction} is a sequence of read-write operations that are atomic.\\[2mm]
 A \qw{monitor} type presents a set of programmer-defined operations that are provided mutual exclusion within it.\\[2mm]
 The correct order of operations for protecting a critical section using a binary semaphore is \qw{wait() followed by signal()}.
-\newpage
-
-
 
 \section*{\centering Chapter 6}
 In preemptive scheduling, code sections affected by interrupts \qw{must be guarded} against simultaneous use.\\[2mm]
@@ -105,7 +96,7 @@ Regarding Solaris interactive threads, a \qw{higher number} indicates a \qw{high
 The default scheduling class for a process in Solaris is \qw{time sharing}.\\[2mm]
 In Little's formula, lambda ($\lambda$) represents the \qw{average arrival rate} for new processes in the queue.\\[2mm]
 The length of a time quantum assigned by the Linux CFS scheduler \qw{is not} dependent on the relative priority of a task.\\[2mm]
-The numeric priority of a Windows thread in the NORMAL_PRIORITY_CLASS with HIGHEST relative priority is \qw{10}.\\[2mm]
+The numeric priority of a Windows thread in the NORMAL PRIORITY CLASS with HIGHEST relative priority is \qw{10}.\\[2mm]
 The rate of a periodic task in a hard real-time system is \qw{$1/p$}, where $p$ is a period and $t$ is the processing time.\\[2mm]
 Round-robin (RR) scheduling degenerates to first-come-first-served (FCFS) scheduling if the \qw{time quantum is too long}.\\[2mm]
 In hard real-time systems, interrupt latency \qw{must be bounded}.\\[2mm]
@@ -161,9 +152,6 @@ The wait-for graph scheme is \qw{not applicable} to a resource allocation system
 Deadlock prevention and deadlock avoidance are \qw{very different} approaches for handling deadlock.\\[2mm]
 If a resource-allocation graph has a cycle, the system \qw{may or may not} be in a deadlocked state.\\[2mm]
 Ordering resources and requiring the resources to be acquired in order \qw{does not} prevent the circular wait from occurring.
-\newpage
-
-
 
 \section*{\centering Chapter 8}
 \qw{Best-fit} is the dynamic storage allocation problem that produces the smallest leftover hole in memory.\\[2mm]
@@ -190,15 +178,9 @@ Windows uses a local page replacement policy \qw{when a process exceeds its work
 Regarding Solaris' memory management, the speed at which pages are examined (the scan rate) is \qw{varied}.\\[2mm]
 Stack algorithms can \qw{never} exhibit Belady's anomaly.\\[2mm]
 \qw{Thrashing} occurs when a process spends more time paging than executing.\\[2mm]
-\newpage
-
-
 
 \section*{\centering Chapter 10}
 A \qw{snapshot} is a view of the file system before the last update took place.\\[2mm]
-\newpage
-
-
 
 \section*{\centering Chapter 11}
 The UNIX system uses a crude \qw{magic number} stored at the beginning of some files to indicate roughly the type of the file.\\[2mm]
@@ -239,9 +221,6 @@ A drawback of this technique is that it is not feasible to keep the entire list
 in main memory for large disks.\\[2mm]
 The WAFL system \qw{provides a lot of replication}.\\[2mm]
 For any type of access, \qw{contiguous allocation} requires only one access to get a disk block.
-\newpage
-
-
 
 \section*{\centering Chapter 13}
 An interrupt priority scheme can be used to \qw{allow the most urgent work to finish first}, \qw{enable the CPU to defer the handling of low-priority interrupts without masking all interrupts}, \qw{and makes it possible for a high priority interrupt to preempt the execution of a low-priority interrupt}.\\[2mm]
