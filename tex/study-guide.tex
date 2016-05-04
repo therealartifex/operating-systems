@@ -29,8 +29,17 @@ Interrupts may be triggered by \qw{either hardware or software}.
 
 
 \section*{\centering Chapter 2}
-System calls can be run in \qw{either user mode or kernel mode}.\\[2mm]
+System calls can be run in \qw{kernel mode only}.\\[2mm]
 The Windows CreateFile() system call is used to create a file. In UNIX, the equivalent function is \qw{open()}.\\[2mm]
+\qw{Modules} allow operating system services to be loaded dynamically.\\[2mm]
+Android runs Java programs \qw{in the Dalvik virtual machine}.\\[2mm]
+Android is open source, iOS is closed source.\\[2mm]
+Policy \qw{determines what will be done}.\\[2mm]
+\qw{System calls} provide an interface to the services provided by an operating system.\\[2mm]
+The close() system call in UNIX is used to close a file. The equivalent system call in Windows is \qw{`CloseHandle()'}.\\[2mm]
+Mac OS X is a \qw{hybrid system} consisting of both the \qw{Mach microkernel and BSD UNIX}.\\[2mm]
+Cache memory \qw{is not} a technique for passing parameters from an application to a system call.\\[2mm]
+Many operating systems \qw{merge I/O devices and files into a combined file} because of the similarity of system calls for each.
 \newpage
 
 
@@ -43,6 +52,14 @@ The \qw{stack} of a process contains temporary data such as function parameters,
 \qw{Not all} access to POSIX shared memory requires a system call.\\[2mm]
 For \qw{distributed systems}, \qw{message passing} is a more appropriate IPC mechanism than shared memory.\\[2mm]
 Local Procedure Calls in Windows XP \qw{are similar} to Remote Procedure Calls.\\[2mm]
+\qw{Sandbox} is not a process type in the Chrome browser.\\[2mm]
+A \qw{process is an active entity} while a \qw{program is a passive entity}.\\[2mm]
+The exec() system call \qw{does not} create a new process.\\[2mm]
+The iOS mobile operating system only supports a \qw{limited form of multitasking}.\\[2mm]
+Reading and writing to ordinary pipes on both UNIX and Windows systems \qw{can be performed like ordinary file I/O}.\\[2mm]
+For a single-processor system, there will \qw{never be more than one} process in the Running state.\\[2mm]
+A process may transition to the Ready state upon the occurrence of any the following actions:
+\qw{Completion of an I/O event, Awaiting its turn on the CPU, Newly-admitted process}.
 \newpage
 
 
@@ -53,16 +70,30 @@ Sharing \qw{is not} automatically provided in Java threads\\[2mm]
 The \qw{many-to-one} model maps many user threads to one kernel thread.\\[2mm]
 \qw{Deferred cancellation} is preferred over asynchronous cancellation.\\[2mm]
 A \qw{thread library} provides the programmer with an API for creating and managing threads.\\[2mm]
+A lightweight process (LWP) is \qw{placed between user and kernel threads}.\\[2mm]
+A \qw{thread pool} uses an existing thread (rather than creating a new one) to complete a task.\\[2mm]
+The most common technique for writing multithreaded Java programs is \qw{implementing the Runnable interface and defining its run() method}.\\[2mm]
+OpenMP only works for \qw{C, C++, and Fortran} programs.\\[2mm]
+Pthreads refers to \qw{a specification for thread behavior}.
 \newpage
 
 
 
 \section*{\centering Chapter 5}
-\qw{Counting semaphores} can be used to control access to a given resource consisting of a \qw{finite number of instances}.\\[2mm] 
+\qw{Counting semaphores} can be used to control access to a given resource consisting of a \qw{finite number of instances}.\\[2mm]
+A counting semaphore \qw{is essentially an integer variable}.\\[2mm]
 A solution to the critical section problem does not have to satisfy \qw{atomicity}.\\[2mm]
 A mutex lock \qw{is essentially a boolean variable}.\\[2mm]
 \qw{Every object in Java} has associated with it a single lock.\\[2mm]
 \qw{Peterson's solution} is not a technique for managing critical sections in operating systems.\\[2mm]
+The OpenMP #pragma omp critical directive \qw{behaves much like a mutex lock}.\\[2mm]
+Operations on atomic integers \qw{do not} require locking.\\[2mm]
+A \qw{critical section} refers to where a process is accessing/updating shared data.\\[2mm]
+Race conditions are prevented by \qw{requiring that critical regions be protected by locks}.\\[2mm]
+\qw{2 philosophers may eat simultaneously} in the Dining Philosophers problem with 5 philosophers.\\[2mm]
+A \qw{memory transaction} is a sequence of read-write operations that are atomic.\\[2mm]
+A \qw{monitor} type presents a set of programmer-defined operations that are provided mutual exclusion within it.\\[2mm]
+The correct order of operations for protecting a critical section using a binary semaphore is \qw{wait() followed by signal()}.
 \newpage
 
 
@@ -76,6 +107,16 @@ In Little's formula, lambda ($\lambda$) represents the \qw{average arrival rate}
 The length of a time quantum assigned by the Linux CFS scheduler \qw{is not} dependent on the relative priority of a task.\\[2mm]
 The numeric priority of a Windows thread in the NORMAL_PRIORITY_CLASS with HIGHEST relative priority is \qw{10}.\\[2mm]
 The rate of a periodic task in a hard real-time system is \qw{$1/p$}, where $p$ is a period and $t$ is the processing time.\\[2mm]
+Round-robin (RR) scheduling degenerates to first-come-first-served (FCFS) scheduling if the \qw{time quantum is too long}.\\[2mm]
+In hard real-time systems, interrupt latency \qw{must be bounded}.\\[2mm]
+\qw{SJF} scheduling is approximated by predicting the next CPU burst with an exponential average of the measured lengths of previous CPU bursts.\\[2mm]
+The \qw{RR} scheduling algorithm is designed especially for time-sharing systems.\\[2mm]
+The \qw{FCFS} scheduling algorithm must be non-preemptive.\\[2mm]
+Load balancing algorithms \qw{have an impact} on the benefits of processor affinity.\\[2mm]
+In cooperative scheduling, a process \qw{keeps the CPU until it releases the CPU}, either by terminating, or by switching to the waiting state.\\[2mm]
+Regarding the EDF algorithm, when a process becomes runnable, \qw{it must announce its deadline requirements} to the system.\\[2mm]
+\qw{System-contention scope} involves the decision of which kernel thread to schedule onto which CPU.\\[2mm]
+A multicore system \qw{allows two (or more) threads that are in compute cycles} to execute at the same time.
 \newpage
 
 
@@ -114,6 +155,12 @@ The circular-wait condition for a deadlock \qw{implies the hold-and-wait conditi
 Each process can request resources only in an \qw{increasing order} of enumeration. If there are three resources $R_1$, $R_2$, $R_3$ assigned unique integer values, 15, 10, and 25, respectively, then the ordering that prevents a circular wait would be \qw{$R_2$, $R_1$, $R_3$}.\\[2mm]
 Protocols to prevent hold-and-wait typically \qw{do not} also prevent starvation.\\[2mm]
 In a system resource-allocation graph, a directed edge from a \qw{process to a resource} is called a \qw{request edge}.\\[2mm]
+One necessary condition for deadlock is \qw{no preemption}, which states that a resource can be released only voluntarily by the process holding the resource.\\[2mm]
+One necessary condition for deadlock is \qw{circular wait}, which states that there is a chain of waiting processes whereby P0 is waiting for a resource held by P1, P1 is waiting for a resource held by P2, and Pn is waiting for a resource held by P0.\\[2mm]
+The wait-for graph scheme is \qw{not applicable} to a resource allocation system with multiple instances of each resource type.\\[2mm]
+Deadlock prevention and deadlock avoidance are \qw{very different} approaches for handling deadlock.\\[2mm]
+If a resource-allocation graph has a cycle, the system \qw{may or may not} be in a deadlocked state.\\[2mm]
+Ordering resources and requiring the resources to be acquired in order \qw{does not} prevent the circular wait from occurring.
 \newpage
 
 
@@ -128,12 +175,21 @@ A 32-bit logical address with an 8 KB ($2^{13}$) page size \qw{will not} have 10
 
 
 \section*{\centering Chapter 9}
-Solaris uses \qw{both a local and global} page replacement policy.\\[2mm]
-Windows uses \qw{only a local} page replacement policy only.\\[2mm]
+Solaris uses \qw{only a global} page replacement policy.\\[2mm]
+Windows uses \qw{only a local} page replacement policy.\\[2mm]
 Vfork \qw{should not} always be used as an alternative to fork.\\[2mm]
 The \qw{TLB reach} the number of entries in the TLB multiplied by the page size.\\[2mm]
 In general, virtual memory \qw{increases} the degree of multiprogramming in a system.\\[2mm]
 Given the reference string of page accesses: `1 2 3 4 2 3 4 1 2 1 1 3 1 4', and a system with three page frames, the final configuration of the frames using the \qw{LRU algorithm} will be \qw{3 1 4}.\\[2mm]
+In the enhanced second chance algorithm, \qw{the ordered pair (0,0)} represents a page that would be the best choice for replacement.\\[2mm]
+On a system with demand paging, a process will \qw{experience a high page fault rate} when the process begins execution.\\[2mm]
+The buddy system for allocating kernel memory \qw{is very likely} to cause fragmentation within the allocated segments.\\[2mm]
+\qw{The entirety} of a process's working set needs to be stored in the TLB.\\[2mm]
+A page-fault \qw{must be preceded} by a TLB miss.\\[2mm]
+Windows uses a local page replacement policy \qw{when a process exceeds its working set maximum}.\\[2mm]
+Regarding Solaris' memory management, the speed at which pages are examined (the scan rate) is \qw{varied}.\\[2mm]
+Stack algorithms can \qw{never} exhibit Belady's anomaly.\\[2mm]
+\qw{Thrashing} occurs when a process spends more time paging than executing.\\[2mm]
 \newpage
 
 
@@ -153,6 +209,15 @@ File links may point to \qw{relative or absolute} path names.\\[2mm]
 The path name `os-student/src/vm.c' is an example of a \qw{relative path name}.\\[2mm]
 In a system where several different applications open the same file at the same time, the operating system uses \qw{two internal tables}: a \qw{per-process} table and a \qw{system-wide} table.\\[2mm]
 An exclusive lock behaves like a \qw{writer lock}.\\[2mm]
+A \qw{source} file is a sequence of functions.\\[2mm]
+An \qw{executable} file is a series of code sections that the loader can bring into memory and execute.\\[2mm]
+The path name `/home/people/os-student/chap11.txt' is an example of \qw{an absolute path name}.\\[2mm]
+\qw{Resolution} is not considered a file attribute.\\[2mm]
+On a UNIX system, writes to an open file \qw{are immediately visible} to other users who also have the same file open.\\[2mm]
+\qw{Reliability} is not considered a difficulty when considering file sharing.\\[2mm]
+A remote file system \qw{may be mounted}.\\[2mm]
+An absolute path name \qw{can be} a relative path name.
+The simplest access method is \qw{sequential access}.
 \newpage
 
 
@@ -164,6 +229,16 @@ A contiguous chuck of disk blocks is known as an \qw{extent}.\\[2mm]
 Indexed allocation \qw{may require} substantial overhead for its index block.\\[2mm]
 The layers of the file system, from lowest to highest are: \qw{devices, I/O control, basic file system, file-organization, logical file system, application programs}.\\[2mm]
 The consistency checker \qw{will try to fix} any inconsistencies it finds.\\[2mm]
+The file-allocation table (FAT) used in MS-DOS is an example of \qw{linked allocation}.\\[2mm]
+\qw{Least-recently-used (LRU)} is considered reasonable for managing a buffer cache.\\[2mm]
+A unified buffer cache \qw{uses the same cache} for ordinary disk I/O as well as memory-mapped I/O.\\[2mm]
+Asynchronous writes to a file system \qw{are generally more efficient} than synchronous writes.\\[2mm]
+A disk with free blocks 0,1,5,9,15 would be represented with the bit map \qw{1100010001000001}.\\[2mm]
+The free-space list can be implemented using a bit vector approach.
+A drawback of this technique is that it is not feasible to keep the entire list
+in main memory for large disks.\\[2mm]
+The WAFL system \qw{provides a lot of replication}.\\[2mm]
+For any type of access, \qw{contiguous allocation} requires only one access to get a disk block.
 \newpage
 
 
@@ -178,6 +253,9 @@ A \qw{terminal concentrator} is a front-end processor that multiplexes the traff
 Regarding blocking system calls, \qw{the execution of the application is suspended when the call is issued}.\\[2mm]
 A sense key reports on the failure of a SCSI device by \qw{stating the general nature of the failure}.\\[2mm]
 DMA controllers \qw{can steal memory access cycles from the main CPU}.\\[2mm]
+Vectored IO allows one system call to perform multiple IO operations involving \qw{multiple locations}.\\[2mm]
+A maskable interrupt \qw{can be disabled}.\\[2mm]
+\qw{Raw} I/O accesses a block device as a simple array of blocks.
 \newpage
 
 
