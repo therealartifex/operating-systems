@@ -6,69 +6,50 @@
 \usepackage{soul}
 \newcommand{\qw}[1]{\textbf{\ul{#1}}}
 \begin{document}
-\section*{\centering Final Review}
-Sharing \qw{is not} automatically provided in Java threads\\[2mm]
-In a distributed system, a \qw{site} usually indicates the location of a machine.\\[2mm]
-In capability lists, each object has a \qw{tag} to denote its type, whether capability or accessible data.\\[2mm]
-On log-structured filesystems, all metadata \qw{is written} sequentially to a log\\[2mm]
-The \qw{lightweight directory-access protocol (LDAP)} is a secure, distributed naming mechanism.\\[2mm]
-\qw{Deferred cancellation} is preferred over asynchronous cancellation.\\[2mm]
-The \qw{many-to-one} model maps many user threads to one kernal thread.\\[2mm]
-An expansion bus connects relatively \qw{slow} devices to the main bus.\\[2mm]
-A solution to the critical section problem does not have to satisfy \qw{atomicity}.\\[2mm]
-Metadata \qw{does not} include all of the filesystem structure.\\[2mm]
-Vfork \qw{should not} always be used as an alternative to fork.\\[2mm]
-Protocols to prevent hold-and-wait typically \qw{do not} also prevent starvation.\\[2mm]
-All files in a single directory \qw{must have unique names}.\\[2mm]
-Live migration is \qw{not found in general-purpose operating systems} but is \qw{present in type 0 and type 1 hypervisors}.\\[2mm]
-A contiguous chunk of disk blocks is known as an \qw{extent}.\\[2mm]
-Each process can request resources only in an \qw{increasing order} of enumeration. If there are three resources R1, R2, R3 assigned unique integer values, 15, 10, and 25, respectively, then the ordering that prevents a circular wait would be \qw{R2, R1, R3}.\\[2mm]
-\qw{Best-fit} is the dynamic storage allocation problem that produces the smallest leftover hole in memory.\\[2mm]
-The Windows CreateFile() system call is used to create a file. In UNIX, the equivalent function is \qw{open()}.\\[2mm]
-File links may point to \qw{relative or absolute} path names.\\[2mm]
-A cycle in a resource-allocation graph is a \qw{necessary and sufficient} condition for a deadlock in the case that each resource has \qw{exactly one} instance.\\[2mm]
-Guests \qw{do not share} a VCPU.\\[2mm]
-An acyclic graph \qw{allows directories to share subdirectories and files}.\\[2mm]
-\qw{Not all} access to POSIX shared memory requires a system call.\\[2mm]
-Regarding Solaris interactive threads, a \qw{higher number} indicates a \qw{higher priority}.\\[2mm]
-RC4 is a symmetric stream cipher.\\[2mm]
-A \qw{snapshot} is a view of the file system before the last update took place.\\[2mm]
-The \qw{stack} of a process contains temporary data such as function parameters, return addresses, and local variables.\\[2mm]
-The \qw{global table} implementation of an access table consists of sets of ordered triples.\\[2mm]
-A \qw{thread library} provides the programmer with an API for creating and managing threads.\\[2mm]
-\qw{Overcommitment} occurs when a virtual machine is configured with more virtual CPUs than there are physical CPUs.\\[2mm]
-The default scheduling class for a process in Solaris is \qw{time sharing}.\\[2mm]
-The \qw{TLB reach} the number of entries in the TLB multiplied by the page size.\\[2mm]
-The UNIX system uses a crude \qw{magic number} stored at the beginning of some files to indicate roughly the type of the file.\\[2mm]
-An interrupt priority scheme can be used to \qw{allow the most urgent work to finish first}, \qw{enable the CPU to defer the handling of low-priority interrupts without masking all interrupts}, \qw{and makes it possible for a high priority interrupt to preempt the execution of a low-priority interrupt}.\\[2mm]
-In general, an access matrix is \qw{sparse, not dense}.\\[2mm]
-There is \qw{no universally accepted definition} of an operating system.\\[2mm]
-A child process inherits a pipe from its parent process because \qw{a pipe is a special type of file}, and child processes inherit open files from their parents.\\[2mm]
-Indexed allocation \qw{may require} substantial overhead for its index block.\\[2mm]
-\qw{Task parallelism} involves distributing not data, but tasks (threads) across multiple computing cores.\\[2mm]
-The x86-64 architecture currently provides a \qw{48-bit virtual address} with support for page sizes of 4 KB, 2 MB, or 1 GB using four levels of paging hierarchy.\\[2mm]
-\qw{Counting semaphores} can be used to control access to a given resource consisting of a \qw{finite number of instances}.\\[2mm] 
-When a class is loaded in Java, \qw{the JVM assigns the class to a protection domain that gives the permissions of that class}.\\[2mm]
-A character-stream device transfers bytes \qw{one by one}.\\[2mm]
-Given the refernce string of page accesses: `1 2 3 4 2 3 4 1 2 1 1 3 1 4', and a system with three page frames, the final configuration of the frames using the \qw{LRU algorithm} will be \qw{3 1 4}.\\[2mm]
-Tripwire does not provide a way to distinguish between an authorized and an unauthorized change.\\[2mm]
-In a system where several different applications open the same file at the same time, the operating system uses \qw{two internal tables}: a \qw{per-process} table and a \qw{system-wide} table.\\[2mm]
-In preemptive scheduling, code sections affected by interrupts \qw{must be guarded} against simultaneous use.\\[2mm]
-A \qw{CPU} could be preempted from a process.\\[2mm]
-An exclusive lock behaves like a \qw{writer lock}.\\[2mm]
-The path name `os-student/src/vm.c' is an example of a \qw{relative path name}.\\[2mm]
-System calls can be run in \qw{either user mode or kernel mode}.\\[2mm]
-The length of a time quantum assigned by the Linux CFS scheduler \qw{is not} dependent on the relative priority of a task.\\[2mm]
-Solaris uses \qw{both a local and global} page replacement policy.\\[2mm]
-Windows uses \qw{only a local} page replacement policy only.\\[2mm]
-In general, virtual memory \qw{increases} the degree of multiprogramming in a system.\\[2mm]
+\section*{\centering Chapter 1}
 Embedded systems almost always run \qw{real-time operating systems}.\\[2mm]
-For \qw{distributed systems}, \qw{message passing} is a more appropriate IPC mechanism than shared memory.\\[2mm]
-To improve the efficiency of I/O, we can \qw{move processing primitives into hardware}.\\[2mm]
-A 32-bit logical address with an 8 KB ($2^{13}$) page size \qw{will not} have 1000000, but rather \qw{524288} ($2^{32}/2^{13}$) entries in a conventional page table.\\[2mm]
-\qw{Execution time binding} is the method of binding instructions and data to memory performed by most general-purpose operating systems.\\[2mm]
+There is \qw{no universally accepted definition} of an operating system.\\[2mm]
+A \qw{distribution} is a custom build of the Linux operating system.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 2}
+System calls can be run in \qw{either user mode or kernel mode}.\\[2mm]
+The Windows CreateFile() system call is used to create a file. In UNIX, the equivalent function is \qw{open()}.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 3}
+A socket is identified by an \qw{IP address concatenated with a port number}.\\[2mm]
 A message-passing model is \qw{easier to implement} than a shared memory model for \qw{intercomputer communication}.\\[2mm]
-Suppose that there are 12 resources available to three processes. At time 0, the following data is collected. The table indicates the process, the maximum number of resources needed by the process, and the number of resources currently owned by each process.
+A child process inherits a pipe from its parent process because \qw{a pipe is a special type of file}, and child processes inherit open files from their parents.\\[2mm]
+The \qw{stack} of a process contains temporary data such as function parameters, return addresses, and local variables.\\[2mm]
+\qw{Not all} access to POSIX shared memory requires a system call.\\[2mm]
+For \qw{distributed systems}, \qw{message passing} is a more appropriate IPC mechanism than shared memory.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 4}
+Sharing \qw{is not} automatically provided in Java threads\\[2mm]
+\qw{Task parallelism} involves distributing not data, but tasks (threads) across multiple computing cores.\\[2mm]
+The \qw{many-to-one} model maps many user threads to one kernel thread.\\[2mm]
+\qw{Deferred cancellation} is preferred over asynchronous cancellation.\\[2mm]
+A \qw{thread library} provides the programmer with an API for creating and managing threads.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 5}
+\qw{Counting semaphores} can be used to control access to a given resource consisting of a \qw{finite number of instances}.\\[2mm] 
+A solution to the critical section problem does not have to satisfy \qw{atomicity}.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 6}
+In preemptive scheduling, code sections affected by interrupts \qw{must be guarded} against simultaneous use.\\[2mm]
+Systems using the one-to-one model, such as Windows, Linux, and Solaris, schedule threads using only \qw{system-contention scope (SCS)}.\\[2mm]
+Regarding Solaris interactive threads, a \qw{higher number} indicates a \qw{higher priority}.\\[2mm]
+The default scheduling class for a process in Solaris is \qw{time sharing}.\\[2mm]
+In Little's formula, lambda ($\lambda$) represents the \qw{average arrival rate} for new processes in the queue.\\[2mm]
+The length of a time quantum assigned by the Linux CFS scheduler \qw{is not} dependent on the relative priority of a task.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 7}
+Suppose that there are 12 resources available to three processes. At time 0, the following data is collected. The table indicates the process, the maximum number of resources needed by the process, and the number of resources currently owned by each process.\\
 \begin{table}[H]
 \centering
 \begin{tabular}{ccc}
@@ -79,27 +60,75 @@ $P_2$ & 7 & 4 \\ \hline
 \end{tabular}
 \end{table}
 The system is in a \qw{safe state}. The sequence `$P_1$, $P_2$, $P_0$' satisfies the safety condition.
-At time $t_0$, we have 2 free resources. $P_1$ can be allocated 1 resource,
+At time $t_0$, we have 2 free resources. $P_1$ can be allocated 1 resource, 
 which it will return, giving us 4 free resources. Then $P_2$ can get the 3 resources it needs to process,
 after which we will have 8 free resources. Finally, we can give $P_0$ the 6 resources it needs to finish processing.\\[2mm]
-A \qw{distribution} is a custom build of the Linux operating system.\\[2mm]
-In Little's formula, lambda ($\lambda$) represents the \qw{average arrival rate} for new processes in the queue.\\[2mm]
-A socket is identified by an \qw{IP address concatenated with a port number}.\\[2mm]
-Generally, \qw{it is impossible} to prevent denial-of-service attacks.\\[2mm]
+Suppose that there are 10 resources available to three processes. At time 0, the following data is collected. The table indicates the process, the maximum number of resources needed by the process, and the number of resources currently owned by each process.\\
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\textit{Process} & \textit{Max Needs} & \textit{Currently Owns} \\ \hline
+$P_0$ & 10 & 4 \\
+$P_1$ & 3 & 1 \\
+$P_2$ & 6 & 4 \\ \hline
+\end{tabular}
+\end{table}
+The system is in an \qw{unsafe state}. No sequence can satisfy the safety condition.
+At time $t_0$, we have 1 free resource. We can give this resource to any of the processes but none
+will have enough to finish processing and return the resource.\\[2mm]
+A cycle in a resource-allocation graph is a \qw{necessary and sufficient} condition for a deadlock in the case that each resource has \qw{exactly one} instance.\\[2mm]
+A \qw{CPU} could be preempted from a process.\\[2mm]
+The circular-wait condition for a deadlock \qw{implies the hold-and-wait condition}.\\[2mm]
+Each process can request resources only in an \qw{increasing order} of enumeration. If there are three resources $R_1$, $R_2$, $R_3$ assigned unique integer values, 15, 10, and 25, respectively, then the ordering that prevents a circular wait would be \qw{$R_2$, $R_1$, $R_3$}.\\[2mm]
+Protocols to prevent hold-and-wait typically \qw{do not} also prevent starvation.\\[2mm]
 
-\section{Chapter 1}\newpage
-\section{Chapter 2}\newpage
-\section{Chapter 3}\newpage
-\section{Chapter 4}\newpage
-\section{Chapter 5}\newpage
-\section{Chapter 6}\newpage
-\section{Chapter 7}\newpage
-\section{Chapter 8}\newpage
-\section{Chapter 9}\newpage
-\section{Chapter 10}\newpage
-\section{Chapter 11}\newpage
-\section{Chapter 12}\newpage
-\section{Chapter 13}\newpage
+
+\newpage
+\section*{\centering Chapter 8}
+\qw{Best-fit} is the dynamic storage allocation problem that produces the smallest leftover hole in memory.\\[2mm]
+The x86-64 architecture currently provides a \qw{48-bit virtual address} with support for page sizes of 4 KB, 2 MB, or 1 GB using four levels of paging hierarchy.\\[2mm]
+A 32-bit logical address with an 8 KB ($2^13$) page size \qw{will not} have 1000000, but rather \qw{524288} ($2^{32}/2^8$) entries in a conventional page table.\\[2mm]
+\qw{Execution time binding} is the method of binding instructions and data to memory performed by most general-purpose operating systems.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 9}
+Solaris uses \qw{both a local and global} page replacement policy.\\[2mm]
+Windows uses \qw{only a local} page replacement policy only.\\[2mm]
+Vfork \qw{should not} always be used as an alternative to fork.\\[2mm]
+The \qw{TLB reach} the number of entries in the TLB multiplied by the page size.\\[2mm]
+In general, virtual memory \qw{increases} the degree of multiprogramming in a system.\\[2mm]
+Given the reference string of page accesses: `1 2 3 4 2 3 4 1 2 1 1 3 1 4', and a system with three page frames, the final configuration of the frames using the \qw{LRU algorithm} will be \qw{3 1 4}.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 10}
+A \qw{snapshot} is a view of the file system before the last update took place.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 11}
+The UNIX system uses a crude \qw{magic number} stored at the beginning of some files to indicate roughly the type of the file.\\[2mm]
+An acyclic graph \qw{allows directories to share subdirectories and files}.\\[2mm]
+The \qw{lightweight directory-access protocol (LDAP)} is a secure, distributed naming mechanism.\\[2mm]
+All files in a single directory \qw{must have unique names}.\\[2mm]
+File links may point to \qw{relative or absolute} path names.\\[2mm]
+The path name `os-student/src/vm.c' is an example of a \qw{relative path name}.\\[2mm]
+In a system where several different applications open the same file at the same time, the operating system uses \qw{two internal tables}: a \qw{per-process} table and a \qw{system-wide} table.\\[2mm]
+An exclusive lock behaves like a \qw{writer lock}.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 12}
+On log-structured filesystems, all metadata \qw{is written} sequentially to a log\\[2mm]
+Metadata \qw{does not} include all of the filesystem structure.\\[2mm]
+A contiguous chuck of disk blocks is known as an \qw{extent}.\\[2mm]
+Indexed allocation \qw{may require} substantial overhead for its index block.\\[2mm]
+
+\newpage
+\section*{\centering Chapter 13}
+An interrupt priority scheme can be used to \qw{allow the most urgent work to finish first}, \qw{enable the CPU to defer the handling of low-priority interrupts without masking all interrupts}, \qw{and makes it possible for a high priority interrupt to preempt the execution of a low-priority interrupt}.\\[2mm]
+An expansion bus connects relatively \qw{slow} devices to the main bus.\\[2mm]
+To improve the efficiency of I/O, we can \qw{move processing primitives into hardware}.\\[2mm]
+A character-stream device transfers bytes \qw{one by one}.\\[2mm]
+
+\newpage
 \section*{\centering Chapter 14}
 In an access matrix, the \qw{control} right allows a process to change the entries in a \qw{row}.\\[2mm]
 An advantage of compiler-based enforcement is that \qw{access privileges are closely related to the linguistic concept of a data type}.\\[2mm]
